@@ -2,167 +2,171 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>SideQuest · Get paid for a link on your Steam page</title>
-<meta name="description" content="SideQuest pays developers to place one Discord link on the Steam page of a game that is no longer active. Set your price, keep your page.">
-<meta property="og:title" content="SideQuest · Get paid for a link on your Steam page">
-<meta property="og:url" content="https://side-quest.pro">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='9' fill='%23fff'/%3E%3Cpath d='M9.5 22.5c0-5.5 13-3.5 13-10' fill='none' stroke='%23000' stroke-width='2.2' stroke-linecap='round' stroke-dasharray='.1 4.2'/%3E%3Ccircle cx='9.5' cy='22.5' r='3'/%3E%3Cpath d='M22.5 6.5l3.6 3.6-3.6 3.6-3.6-3.6z'/%3E%3C/svg%3E">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>SideQuest · Get paid for a dead game</title>
+<meta name="description" content="SideQuest pays $100 to $1,000 per game for one Discord link on the Steam page of a game that stopped.">
+<meta property="og:title" content="SideQuest · Get paid for a dead game"><meta property="og:url" content="https://side-quest.pro">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='9' fill='%23fff'/%3E%3Cpath d='M22 10.5c-1.2-2-3.4-3-6-3-3.4 0-5.8 1.8-5.8 4.4 0 6.4 11.6 3.2 11.6 9.4 0 2.8-2.6 4.7-6 4.7-2.9 0-5.3-1.2-6.6-3.4' fill='none' stroke='%23000' stroke-width='3.4' stroke-linecap='round'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300..700&family=Geist+Mono:wght@400..600&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#050505;--p:#0B0B0B;--p2:#131313;--line:rgba(255,255,255,.09);--l2:rgba(255,255,255,.2);--t:#F5F5F2;--m:#8B8B86;--d:#4B4B48;--ease:cubic-bezier(.22,1,.36,1);--mx:50%;--my:0}
-*{box-sizing:border-box;margin:0}
-html{background:var(--bg);scroll-behavior:smooth;scroll-padding-top:80px}
-body{color:var(--t);font:15px/1.55 Geist,Inter,ui-sans-serif,system-ui,sans-serif;-webkit-font-smoothing:antialiased;min-height:100vh;overflow-x:hidden}
-body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:90;opacity:.07;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 .9 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+:root{--bg:#050505;--p:#0c0c0c;--p2:#151515;--line:rgba(255,255,255,.1);--t:#F5F5F2;--m:#8B8B86;--d:#4B4B48;--e:cubic-bezier(.22,1,.36,1)}
+*{box-sizing:border-box;margin:0}html{background:var(--bg);scroll-behavior:smooth}
+body{color:var(--t);font:16px/1.55 Geist,ui-sans-serif,system-ui,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body.lock{overflow:hidden}
 button,input,select,textarea{font:inherit;color:inherit}button{cursor:pointer;border:0;background:none}a{color:inherit;text-decoration:none}
-::selection{background:#fff;color:#000}
-:focus-visible{outline:1.5px solid #fff;outline-offset:3px;border-radius:6px}
-.mono{font-family:"Geist Mono",ui-monospace,monospace;font-feature-settings:"tnum"}
-.ic{width:17px;height:17px;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;flex:none}
-.wrap{max-width:1280px;margin:0 auto;padding:0 32px}
-header{position:sticky;top:0;z-index:20;background:rgba(5,5,5,.78);backdrop-filter:blur(16px);border-bottom:1px solid var(--line)}
-.hd{display:flex;align-items:center;gap:10px;height:62px}
-.brand{display:flex;align-items:center;gap:11px;margin-right:auto;font-weight:600;letter-spacing:-.02em}
-.brand .lg{width:30px;height:30px;transition:transform .6s var(--ease)}.brand:hover .lg{transform:rotate(-12deg) scale(1.06)}
-.nav{display:flex;gap:4px;margin-right:8px}.nav a{padding:7px 12px;border-radius:8px;color:var(--m);font-weight:550;transition:color .2s,background .2s}.nav a:hover{color:#fff;background:var(--p2)}
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;height:36px;padding:0 14px;border-radius:9px;font-weight:550;transition:background .25s,color .25s,transform .2s var(--ease),box-shadow .25s;position:relative}
-.btn:active{transform:scale(.96)}.btn:disabled{opacity:.4;cursor:default}
-.btn.ghost{box-shadow:inset 0 0 0 1px var(--l2)}.btn.ghost:hover{background:#fff;color:#000}
-.btn.pri{background:#fff;color:#000}.btn.pri:hover:not(:disabled){box-shadow:0 0 0 4px rgba(255,255,255,.14)}
-.btn.lg{height:46px;padding:0 20px;border-radius:11px}
-#bar{height:1px;position:relative;overflow:hidden}#bar i{position:absolute;inset:0 auto 0 0;width:0;background:#fff}
-#bar.run i{width:100%;transition:width 1.4s var(--ease)}#bar.run i::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,transparent,#000 50%,transparent);animation:sw 1.2s linear infinite}
-@keyframes sw{from{transform:translateX(-100%)}to{transform:translateX(100%)}}
+::selection{background:#fff;color:#000}:focus-visible{outline:1.5px solid #fff;outline-offset:3px;border-radius:8px}
+@media(pointer:fine){body,a,button,input,select,textarea{cursor:none}}
+#gl{position:fixed;inset:0;width:100%;height:100%;z-index:0;pointer-events:none}
+main,footer{position:relative;z-index:1}
+body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:80;opacity:.06;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 .9 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+.ic{width:17px;height:17px;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+/* cursor */
+#cd,#cr{position:fixed;left:0;top:0;z-index:120;pointer-events:none;border-radius:50%;mix-blend-mode:difference;background:#fff;display:none}
+#cd{width:6px;height:6px;margin:-3px}#cr{width:30px;height:30px;margin:-15px;background:none;border:1px solid #fff;transition:width .35s var(--e),height .35s var(--e),margin .35s var(--e),background .3s}
+#cr.h{width:44px;height:44px;margin:-22px;background:rgba(255,255,255,.14)}#cr.t{width:2px;height:22px;margin:-11px -1px;border-radius:1px;background:#fff;border:0}
+@media(pointer:fine){#cd,#cr{display:block}}
+/* intro */
+#intro{position:fixed;inset:0;z-index:110;display:grid;place-items:center}
+#intro i{position:absolute;left:0;right:0;height:50.5%;background:#050505;transition:transform 1.1s var(--e) .1s}#intro i:first-child{top:0}#intro i:nth-child(2){bottom:0}
+#intro.out i:first-child{transform:translateY(-101%)}#intro.out i:nth-child(2){transform:translateY(101%)}
+#intro div{position:relative;text-align:center;transition:opacity .4s}#intro.out div{opacity:0}
+#intro svg{width:56px;height:56px;animation:spin 2.4s var(--e) infinite}@keyframes spin{to{transform:rotate(360deg)}}
+#intro b{display:block;margin-top:18px;font:500 13px "Geist Mono",monospace;color:var(--m)}
+#intro.gone{display:none}
+#prog{position:fixed;top:0;left:0;height:2px;width:100%;background:#fff;transform-origin:0 50%;transform:scaleX(0);z-index:70}
+/* nav */
+nav{position:fixed;top:16px;left:50%;transform:translateX(-50%);z-index:60;display:flex;align-items:center;gap:2px;padding:6px;border-radius:16px;background:rgba(10,10,10,.65);backdrop-filter:blur(18px);box-shadow:inset 0 0 0 1px var(--line);opacity:0;translate:0 -20px;transition:opacity .9s var(--e) .3s,translate .9s var(--e) .3s}
+body.go nav{opacity:1;translate:0 0}
+nav .lg{width:32px;height:32px;margin-right:6px}nav a,nav button{padding:8px 14px;border-radius:10px;color:var(--m);font-weight:550;font-size:14px;transition:color .2s,background .2s}nav a:hover,nav button:hover{color:#fff;background:var(--p2)}
+nav .pri{background:#fff;color:#000}nav .pri:hover{background:#fff;color:#000}
+#snd{width:36px;padding:0;display:grid;place-items:center;height:34px}#snd.off .w{opacity:.2}
+/* type + reveal */
+.wrap{max-width:860px;margin:0 auto;padding:0 24px;text-align:center}
+section{padding:120px 0;position:relative}
+.pill{display:inline-flex;align-items:center;gap:10px;height:32px;padding:0 14px;border-radius:16px;box-shadow:inset 0 0 0 1px var(--line);color:var(--m);font-size:13.5px;background:rgba(10,10,10,.5);backdrop-filter:blur(8px)}
+.pill i{width:6px;height:6px;border-radius:50%;background:#fff;animation:bl 2s infinite}@keyframes bl{50%{opacity:.2}}
+h1,h2{font-weight:500;letter-spacing:-.05em;line-height:.98;perspective:800px}
+h1{font-size:clamp(46px,9vw,112px)}h2{font-size:clamp(38px,6.6vw,84px)}
+.ch{display:inline-block;opacity:0;transform:translateY(80%) rotateX(-85deg);transform-origin:50% 100%}.w{display:inline-block;white-space:nowrap}
+.sp.show .ch{opacity:1;transform:none;transition:transform 1s var(--e) calc(var(--i)*24ms),opacity .6s calc(var(--i)*24ms)}
+.dim{color:var(--d)}
+.lead{color:var(--m);font-size:clamp(16px,2vw,19px);max-width:560px;margin:26px auto 0}
+.rv{opacity:0;transform:translateY(26px);transition:opacity 1s var(--e),transform 1s var(--e);transition-delay:calc(var(--d,0)*100ms)}.rv.show{opacity:1;transform:none}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;height:50px;padding:0 26px;border-radius:14px;font-weight:550;position:relative;transition:background .3s,color .3s,box-shadow .3s,transform .25s}
+.btn.pri{background:#fff;color:#000}.btn.pri:hover{box-shadow:0 0 0 6px rgba(255,255,255,.14),0 20px 60px rgba(255,255,255,.2)}
+.btn.gh{box-shadow:inset 0 0 0 1px rgba(255,255,255,.22);background:rgba(10,10,10,.4)}.btn.gh:hover{background:#fff;color:#000}
+.btn:disabled{opacity:.4}.cta{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:34px}
+.stage{height:clamp(280px,42vh,420px);margin:10px auto 0}
 /* hero */
-.hero{position:relative;padding:72px 0 56px;overflow:hidden}
-.hero::before{content:"";position:absolute;inset:0;background:radial-gradient(560px circle at var(--mx) var(--my),rgba(255,255,255,.07),transparent 70%);pointer-events:none}
-.hg{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr);align-items:center;gap:64px;position:relative}
-.lbl{color:var(--m);font-size:13.5px;display:flex;align-items:center;gap:10px;overflow:hidden}
-.lbl span{display:inline-block;transform:translateY(110%);animation:up .9s var(--ease) .1s forwards}
-.lbl i{width:6px;height:6px;background:#fff;animation:blink 2.2s ease-in-out infinite}
-@keyframes blink{50%{opacity:.25}}@keyframes up{to{transform:none}}
-h1{font:500 clamp(38px,5.1vw,74px)/1.02 Geist,sans-serif;letter-spacing:-.045em;margin-top:22px}
-h1 .ln{display:block;overflow:hidden;padding-bottom:.08em}h1 .ln b{display:block;white-space:nowrap;font-weight:500;transform:translateY(105%);animation:up 1.1s var(--ease) forwards;animation-delay:calc(var(--i)*110ms + 250ms)}
-h1 .ln.dim b{color:var(--d)}
-.lead{max-width:520px;color:var(--m);font-size:17px;margin-top:28px;opacity:0;animation:fd 1s var(--ease) .9s forwards}
-@keyframes fd{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
-.cta{display:flex;gap:10px;margin-top:30px;flex-wrap:wrap;opacity:0;animation:fd 1s var(--ease) 1.05s forwards}
-.kvs{display:grid;gap:12px;margin-top:44px;max-width:520px;opacity:0;animation:fd 1s var(--ease) 1.2s forwards}
-.kv{display:flex;justify-content:space-between;gap:30px;padding-bottom:10px;border-bottom:1px solid var(--line);color:var(--m)}.kv b{color:var(--t);font-weight:500;font-family:"Geist Mono",monospace}
-/* steam mock */
-.mock{border-radius:14px;background:var(--p);box-shadow:inset 0 0 0 1px var(--line);overflow:hidden;opacity:0;transform:translateY(24px);animation:mk 1.2s var(--ease) .5s forwards}
-@keyframes mk{to{opacity:1;transform:none}}
-.mk-top{display:flex;align-items:center;gap:6px;padding:11px 14px;border-bottom:1px solid var(--line);font:12px "Geist Mono",monospace;color:var(--d)}.mk-top i{width:8px;height:8px;border-radius:50%;background:var(--p2)}
-.mk-art{display:block;width:100%;height:auto;border-bottom:1px solid var(--line)}
-.mk-b{padding:18px 18px 20px}.mk-b h3{font-size:16px;font-weight:600;letter-spacing:-.02em}
-.mk-s{display:flex;gap:22px;margin:10px 0 16px;color:var(--m);font:12.5px "Geist Mono",monospace}.mk-s b{color:#fff;font-weight:500}
-.sk{height:8px;border-radius:4px;background:linear-gradient(90deg,var(--p2) 25%,#222 50%,var(--p2) 75%);background-size:200% 100%;animation:sh 1.6s linear infinite;margin-top:8px}@keyframes sh{to{background-position:-200% 0}}
-.slot{display:grid;grid-template-rows:0fr;animation:slot .9s var(--ease) 2s forwards}@keyframes slot{to{grid-template-rows:1fr}}.slot>div{overflow:hidden}
-.link{display:flex;align-items:center;gap:10px;margin-top:16px;padding:12px 14px;border-radius:10px;background:#fff;color:#000;font:13px "Geist Mono",monospace;font-weight:500;position:relative;overflow:hidden}
-.link::after{content:"";position:absolute;inset:0;background:linear-gradient(100deg,transparent 30%,rgba(0,0,0,.14) 50%,transparent 70%);transform:translateX(-100%);animation:sw 2.8s var(--ease) 3s infinite}
-.link em{margin-left:auto;font-style:normal;opacity:.55}
-/* sections */
-section{padding:96px 0;border-top:1px solid var(--line)}
-.sh{display:grid;grid-template-columns:1fr 1fr;gap:56px;margin-bottom:48px}
-h2{font:500 clamp(32px,4.4vw,56px)/1 Geist,sans-serif;letter-spacing:-.045em}
-.sh p{color:var(--m);font-size:16.5px;max-width:480px;align-self:end}
-.rv{opacity:0;transform:translateY(22px);transition:opacity .9s var(--ease),transform .9s var(--ease);transition-delay:calc(var(--i,0)*90ms)}.rv.show{opacity:1;transform:none}
-.steps{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--line);border-left:1px solid var(--line)}
-.step{padding:28px 26px 34px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);min-height:230px;transition:background .35s;position:relative}.step:hover{background:var(--p)}
-
-.il{width:150px;height:auto;display:block;fill:none;stroke:#fff;stroke-width:1.4;stroke-linecap:round;stroke-linejoin:round;opacity:.85}.step h3{font-size:21px;font-weight:550;letter-spacing:-.03em;margin:36px 0 8px}.step p{color:var(--m);max-width:320px}
+#hero{min-height:100vh;padding:130px 0 40px;display:flex;flex-direction:column;justify-content:center}
+/* marquee */
+.mq{overflow:hidden;border-block:1px solid var(--line);padding:22px 0;background:rgba(5,5,5,.7);backdrop-filter:blur(6px)}
+.mq div{display:flex;width:max-content;animation:mq 28s linear infinite}.mq span{font:500 clamp(28px,5vw,56px)/1 Geist;letter-spacing:-.04em;padding-right:44px;color:transparent;-webkit-text-stroke:1px rgba(255,255,255,.35);white-space:nowrap}.mq span:nth-child(even){color:var(--t);-webkit-text-stroke:0}
+@keyframes mq{to{transform:translateX(-50%)}}
+/* money */
+.num{white-space:nowrap;font:500 clamp(36px,9vw,118px)/1 "Geist Mono",monospace;letter-spacing:-.06em;margin-top:22px;font-feature-settings:"tnum"}.num small{display:block;font:400 15px "Geist Mono";letter-spacing:0;color:var(--m);margin-top:10px}
+.pays{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:26px}.pays span{padding:8px 16px;border-radius:20px;box-shadow:inset 0 0 0 1px var(--line);color:var(--m);font-size:14px;background:rgba(10,10,10,.5)}
+/* cards */
+.card{border-radius:20px;background:rgba(12,12,12,.82);backdrop-filter:blur(14px);box-shadow:inset 0 0 0 1px var(--line);padding:30px;position:relative;overflow:hidden;text-align:left;transform-style:preserve-3d;transition:transform .25s}
+.card::before{content:"";position:absolute;inset:0;background:radial-gradient(320px circle at var(--x,50%) var(--y,0),rgba(255,255,255,.1),transparent 70%);opacity:0;transition:opacity .4s;pointer-events:none}.card:hover::before{opacity:1}
+.why{display:grid;gap:14px;max-width:640px;margin:40px auto 0}.why .card{text-align:center;padding:26px}.why h3{font-size:21px;font-weight:550;letter-spacing:-.03em;margin:14px 0 6px}.why p{color:var(--m)}
+.ico{width:46px;height:46px;margin:0 auto;fill:none;stroke:#fff;stroke-width:1.4;stroke-linecap:round;stroke-linejoin:round}
+.fine{color:var(--d);font-size:12.5px;max-width:520px;margin:22px auto 0}
 /* forms */
-.card{border-radius:14px;background:var(--p);box-shadow:inset 0 0 0 1px var(--line);padding:26px}
-.grid2{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start}
+.form{max-width:600px;margin:44px auto 0}
 .fld{display:grid;gap:8px;margin-bottom:18px}.fld label{color:var(--m);font-size:13px}
-.in,select.in,textarea.in{width:100%;height:44px;border:0;border-radius:10px;background:transparent;box-shadow:inset 0 0 0 1px var(--line);padding:0 14px;outline:0;transition:box-shadow .25s;color-scheme:dark}
-textarea.in{height:120px;padding:12px 14px;resize:vertical}.in:focus{box-shadow:inset 0 0 0 1px #fff}.in::placeholder{color:var(--d)}
-select.in option{background:#0B0B0B}
+.in,select.in,textarea.in{width:100%;height:50px;border:0;border-radius:12px;background:rgba(255,255,255,.02);box-shadow:inset 0 0 0 1px var(--line);padding:0 16px;outline:0;transition:box-shadow .25s,background .25s;color-scheme:dark}
+textarea.in{height:130px;padding:14px 16px;resize:vertical}.in:focus{box-shadow:inset 0 0 0 1px #fff;background:rgba(255,255,255,.04)}.in::placeholder{color:var(--d)}select.in option{background:#0b0b0b}
 .row{display:flex;gap:10px}.row>*{min-width:0}.row .in{flex:1}
-.seg{position:relative;display:flex;padding:3px;border-radius:10px;box-shadow:inset 0 0 0 1px var(--line);flex-wrap:wrap}
-.seg button{position:relative;z-index:1;flex:1;padding:8px 12px;border-radius:7px;color:var(--m);font-weight:550;transition:color .3s;white-space:nowrap}.seg button.on{color:#000}
-.thumb{position:absolute;top:3px;bottom:3px;left:0;border-radius:7px;background:#fff;transition:transform .5s var(--ease),width .5s var(--ease)}
-.hp{position:absolute;left:-9999px}
-.res{display:grid;grid-template-rows:0fr;transition:grid-template-rows .6s var(--ease)}.res.on{grid-template-rows:1fr}.res>div{overflow:hidden}
-.gm{display:flex;gap:16px;align-items:center;padding:18px 0 4px}
-.gm img{width:150px;aspect-ratio:460/215;border-radius:9px;object-fit:cover;filter:grayscale(1) contrast(1.05);transition:filter .5s;background:var(--p2)}.gm:hover img{filter:none}
-.gm h3{font-size:18px;font-weight:600;letter-spacing:-.02em}.gm p{color:var(--m);font:12.5px "Geist Mono",monospace}
-.st{display:inline-flex;align-items:center;height:24px;padding:0 11px;border-radius:12px;font-size:12.5px;font-weight:550;margin:16px 0}
-.st.ok{background:#fff;color:#000}.st.no{color:var(--m);box-shadow:inset 0 0 0 1px var(--line)}
-.kv2{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:6px 0 4px}.kv2 small{display:block;color:var(--d);font-size:12px}.kv2 span{font:14px "Geist Mono",monospace}
-.err{color:var(--m);font-size:13px;margin-top:12px;min-height:20px}
-.ag{display:grid;grid-template-columns:repeat(2,1fr);border-top:1px solid var(--line);border-left:1px solid var(--line)}
-.ag div{padding:26px;border-right:1px solid var(--line);border-bottom:1px solid var(--line)}.ag h3{font-size:18px;font-weight:550;letter-spacing:-.02em;margin-bottom:6px}.ag p{color:var(--m)}
-.fine{color:var(--d);font-size:12.5px;margin-top:18px;max-width:640px}
-footer{border-top:1px solid var(--line);padding:30px 0 40px;color:var(--m);font-size:13px}.fl{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
-.big{font:500 clamp(70px,16vw,220px)/.85 Geist,sans-serif;letter-spacing:-.07em;color:var(--p2);margin:40px 0 0;user-select:none;white-space:nowrap}
-#toasts{position:fixed;right:24px;bottom:24px;display:grid;gap:10px;z-index:100}
-.toast{display:flex;align-items:center;gap:10px;padding:12px 16px;border-radius:10px;background:#fff;color:#000;font-weight:550;animation:tin .6s var(--ease)}.toast.out{opacity:0;transform:translateY(8px);transition:.3s}@keyframes tin{from{opacity:0;transform:translateY(16px) scale(.96)}}
-@media(max-width:900px){h1 .ln b{white-space:normal}.wrap{padding:0 16px}.hg,.sh,.grid2{grid-template-columns:1fr;gap:32px}.steps{grid-template-columns:1fr}.nav{display:none}.ag{grid-template-columns:1fr}.hero{padding-top:44px}section{padding:64px 0}.gm{flex-direction:column;align-items:flex-start}.kv2{grid-template-columns:1fr 1fr}}
-@media(prefers-reduced-motion:reduce){*{animation-duration:.01ms!important;animation-delay:0s!important;transition-duration:.01ms!important}.lbl span,h1 .ln b,.rv,.lead,.cta,.kvs,.mock{transform:none;opacity:1}.slot{grid-template-rows:1fr}}
+.seg{position:relative;display:flex;padding:4px;border-radius:12px;box-shadow:inset 0 0 0 1px var(--line);flex-wrap:wrap}.seg button{position:relative;z-index:1;flex:1;padding:10px 12px;border-radius:9px;color:var(--m);font-weight:550;transition:color .3s;white-space:nowrap}.seg button.on{color:#000}
+.thumb{position:absolute;top:4px;bottom:4px;left:0;border-radius:9px;background:#fff;transition:transform .5s var(--e),width .5s var(--e)}
+.hp{position:absolute;left:-9999px}.err{color:var(--m);font-size:13px;margin-top:12px;min-height:20px}
+.res{display:grid;grid-template-rows:0fr;transition:grid-template-rows .7s var(--e)}.res.on{grid-template-rows:1fr}.res>div{overflow:hidden}
+.gm{display:flex;gap:16px;align-items:center;padding:20px 0 6px}.gm img{width:150px;aspect-ratio:460/215;border-radius:10px;object-fit:cover;background:var(--p2)}.gm h3{font-size:19px;font-weight:600;letter-spacing:-.02em}.gm p{color:var(--m);font:12.5px "Geist Mono",monospace}
+.kv2{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:8px 0}.kv2 small{display:block;color:var(--d);font-size:12px}.kv2 span{font:14px "Geist Mono",monospace}
+.st{display:inline-flex;align-items:center;height:26px;padding:0 12px;border-radius:13px;font-size:13px;font-weight:550;margin:14px 0}.st.ok{background:#fff;color:#000}.st.no{color:var(--m);box-shadow:inset 0 0 0 1px var(--line)}
+footer{padding:50px 24px 44px;text-align:center;color:var(--d);font-size:13px;border-top:1px solid var(--line);background:rgba(5,5,5,.85)}
+#toasts{position:fixed;left:50%;bottom:26px;transform:translateX(-50%);z-index:100;display:grid;gap:10px}
+.toast{display:flex;align-items:center;gap:10px;padding:13px 20px;border-radius:12px;background:#fff;color:#000;font-weight:550;animation:ti .6s var(--e)}.toast.out{opacity:0;transform:translateY(8px);transition:.3s}@keyframes ti{from{opacity:0;transform:translateY(20px) scale(.95)}}
+@media(max-width:640px){section{padding:84px 0}.gm{flex-direction:column;align-items:flex-start}nav a:not(.pri){display:none}.row{flex-direction:column}}
+@media(prefers-reduced-motion:reduce){*{animation-duration:.01ms!important;transition-duration:.01ms!important}.ch,.rv{opacity:1;transform:none}#intro{display:none}}
+
+html.lenis,html.lenis body{height:auto}html{scroll-behavior:auto}
+.eb{display:inline-flex;align-items:center;gap:12px;margin-bottom:24px;font:500 12px "Geist Mono",monospace;letter-spacing:.16em;text-transform:uppercase;color:var(--m)}.eb::before,.eb::after{content:"";width:26px;height:1px;background:var(--d)}
+section+section::before,.mq+section::before{content:"";position:absolute;top:0;left:50%;width:min(560px,70%);height:1px;transform:translateX(-50%);background:linear-gradient(90deg,transparent,rgba(255,255,255,.3),transparent)}
+.steps{display:grid;gap:14px;max-width:640px;margin:44px auto 0}.steps .card{text-align:center;padding:28px}.steps h3{font-size:22px;font-weight:550;letter-spacing:-.03em;margin:10px 0 6px}.steps p{color:var(--m)}.sn{display:inline-block;padding:4px 12px;border-radius:12px;box-shadow:inset 0 0 0 1px var(--line);font:12px "Geist Mono",monospace;color:var(--m)}
+footer .wrap{max-width:760px}.mail{display:inline-block;font-weight:500;font-size:clamp(22px,5.6vw,54px);letter-spacing:-.04em;margin:6px 0 22px;color:var(--t);background:linear-gradient(#fff,#fff) 0 100%/0 1px no-repeat;transition:background-size .6s var(--e);word-break:break-all}.mail:hover{background-size:100% 1px}
+.legal{margin-top:40px}footer{padding:70px 0 calc(40px + env(safe-area-inset-bottom))}
+#hero{min-height:100vh;min-height:100svh}
+@media(hover:none){.tilt,.mag{transform:none!important}}
+@media(max-width:640px){.stage{height:300px}nav{top:calc(10px + env(safe-area-inset-top))}.seg{flex-wrap:nowrap}.seg button{flex:1 1 0;padding:10px 4px;font-size:13px}.card{padding:22px}.wrap{padding:0 20px}.mq span{font-size:26px}#hero{padding-top:110px}.pays span{font-size:13px}}
+[hidden]{display:none!important}footer .eb{display:flex;justify-content:center}footer{padding:54px 0 calc(26px + env(safe-area-inset-bottom))}.fb{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}.fb .btn{height:44px;padding:0 20px}.legal{margin-top:36px;padding-top:20px;border-top:1px solid var(--line);font-size:12.5px}.mail{margin:2px 0 22px}#contact{padding-bottom:80px}
+footer{padding:20px 20px calc(20px + env(safe-area-inset-bottom));text-align:center}footer .legal{margin:0;padding:0;border:0}#contact{padding-bottom:64px}
 </style>
 </head>
-<body>
-<svg width="0" height="0" style="position:absolute" aria-hidden="true">
-<symbol id="i-sword" viewBox="0 0 24 24"><path d="M18 6 10 14M14 6h4v4M8.5 11.5l4 4M10.5 13.5l-4 4"/></symbol>
-<symbol id="i-out" viewBox="0 0 24 24"><path d="M7 17 17 7M8.5 7H17v8.5"/></symbol>
-<symbol id="i-ok" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="m8.5 12.3 2.4 2.4 4.6-5"/></symbol>
-<symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5"/><path d="m20 20-4-4"/></symbol>
-<symbol id="i-link" viewBox="0 0 24 24"><path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1"/></symbol>
-</svg>
+<body class="lock">
+<div id="cd"></div><div id="cr"></div><div id="prog"></div>
+<div id="intro"><i></i><i></i><div>
+<svg viewBox="0 0 32 32"><rect width="32" height="32" rx="9" fill="#fff"/><path d="M22 10.5c-1.2-2-3.4-3-6-3-3.4 0-5.8 1.8-5.8 4.4 0 6.4 11.6 3.2 11.6 9.4 0 2.8-2.6 4.7-6 4.7-2.9 0-5.3-1.2-6.6-3.4" fill="none" stroke="#000" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/></svg><b id="pc">000</b></div></div>
+<canvas id="gl"></canvas>
 
-<header>
-  <div class="wrap hd">
-    <a class="brand" href="#top"><svg class="lg" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="9" fill="#fff"/><path d="M9.5 22.5c0-5.5 13-3.5 13-10" fill="none" stroke="#000" stroke-width="2.2" stroke-linecap="round" stroke-dasharray="0.1 4.2"/><path d="M9.5 22.5c0-5.5 13-3.5 13-10" fill="none" stroke="#000" stroke-width="2.2" stroke-linecap="round" opacity="0"/><circle cx="9.5" cy="22.5" r="3" fill="#000"/><path d="M22.5 6.5l3.6 3.6-3.6 3.6-3.6-3.6z" fill="#000"/></svg>SideQuest</a>
-    <nav class="nav"><a href="#how">How it works</a><a href="#sell">Check your game</a><a href="#agencies">Servers</a><a href="#contact">Contact</a></nav>
-    <a class="btn pri" href="#sell">Check your game<svg class="ic" viewBox="0 0 24 24"><path d="M7 17 17 7M8.5 7H17v8.5"/></svg></a>
-  </div>
-  <div id="bar"><i></i></div>
-</header>
+<nav>
+<svg class="lg" viewBox="0 0 32 32"><rect width="32" height="32" rx="9" fill="#fff"/><path d="M22 10.5c-1.2-2-3.4-3-6-3-3.4 0-5.8 1.8-5.8 4.4 0 6.4 11.6 3.2 11.6 9.4 0 2.8-2.6 4.7-6 4.7-2.9 0-5.3-1.2-6.6-3.4" fill="none" stroke="#000" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+<a href="#money">Payout</a><a href="#why">Why</a><a href="#contact">Contact</a><a class="pri" href="#submit">Submit</a>
+<button id="snd" aria-label="Toggle sound"><svg class="ic" viewBox="0 0 24 24"><path d="M4 9.5v5h3.5L12 18.5v-13L7.5 9.5z"/><g class="w"><path d="M15.5 9a4 4 0 0 1 0 6M18 6.5a7.5 7.5 0 0 1 0 11"/></g></svg></button>
+</nav>
 
-<main id="top">
-<div class="hero" id="hero">
-  <div class="wrap hg">
-    <div>
-      <div class="lbl"><i></i><span>We buy Discord link placements on Steam pages</span></div>
-      <h1><span class="ln" style="--i:0"><b>Your game stopped.</b></span><span class="ln dim" style="--i:1"><b>Its page didn't.</b></span></h1>
-      <p class="lead">SideQuest pays developers to place one Discord link on the store page of a game that is no longer active. You set the price. You keep your page. The money goes to your next project, or to your life.</p>
-      <div class="cta"><a class="btn pri lg" href="#sell">Check your game</a><a class="btn ghost lg" href="#how">How it works</a></div>
-    </div>
-    <div class="mock" aria-hidden="true">
-      <div class="mk-top"><i></i><i></i><i></i><span style="margin-left:8px">store.steampowered.com/app/…</span></div>
-      <svg class="mk-art" viewBox="0 0 400 170" aria-hidden="true" preserveAspectRatio="xMidYMid slice"><rect width="400" height="170" fill="#0e0e0e"/><circle cx="296" cy="52" r="20" fill="none" stroke="#5b5b57" stroke-width="1.5"/><circle cx="304" cy="48" r="17" fill="#0e0e0e"/><g fill="#5b5b57"><circle cx="60" cy="30" r="1.3"/><circle cx="130" cy="50" r="1"/><circle cx="210" cy="22" r="1.3"/><circle cx="350" cy="96" r="1"/><circle cx="90" cy="84" r="1"/></g><path d="M0 170V120l52-34 40 26 62-54 58 48 44-30 70 52 74-38v80z" fill="#171716" stroke="#3a3a37" stroke-width="1.2" stroke-linejoin="round"/><path d="M0 170v-22l70-22 60 20 70-26 80 24 120-18v44z" fill="#0b0b0b" stroke="#2a2a28" stroke-width="1.2"/><path d="M200 108v-22m0 0 14 5-14 5" fill="none" stroke="#8b8b86" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      <div class="mk-b">
-        <h3>Your game</h3>
-        <div class="mk-s"><span>Players now <b id="mp">38</b></span><span>Last update <b>2022</b></span></div>
-        <div class="sk" style="width:92%"></div><div class="sk" style="width:78%"></div><div class="sk" style="width:55%"></div>
-        <div class="slot"><div><div class="link"><svg class="ic"><use href="#i-link"/></svg>discord.gg/your-server<em>new</em></div></div></div>
-      </div>
-    </div>
+<main>
+<section id="hero"><div class="wrap">
+  <div class="rv"><span class="pill"><i></i>We buy Discord placements on Steam pages</span></div>
+  <h1 class="sp" style="margin-top:26px" data-s>Your dead game is still <span class="dim">worth money.</span></h1>
+  <p class="lead rv" style="--d:6">We pay developers to put one Discord link on the store page of a game that stopped. You choose the price.</p>
+  <div class="cta rv" style="--d:7"><a class="btn pri mag" href="#submit">Submit your game</a><a class="btn gh mag" href="#contact">Contact us</a></div>
+  <div class="stage" id="s1"></div>
+</div></section>
+
+<div class="mq" aria-hidden="true"><div><span>Steam</span><span>Discord</span><span>Placement</span><span>Payout</span><span>Your game</span><span>Your price</span><span>Steam</span><span>Discord</span><span>Placement</span><span>Payout</span><span>Your game</span><span>Your price</span></div></div>
+
+<section id="money"><div class="wrap">
+  <div class="eb rv">01 · Payout</div>
+  <h2 class="sp" data-s>How much can you get?</h2>
+  <div class="num rv" style="--d:3">$<span id="n1" data-to="100">100</span>–<span id="n2" data-to="1000">1,000</span><small>for each game · 3 to 4 figures</small></div>
+  <div class="stage" id="s2"></div>
+  <p class="lead rv">Your game is finished. The money is not. Put it into your next project, or into your life.</p>
+  <div class="pays rv" style="--d:2"><span>PayPal</span><span>Bank transfer</span><span>Crypto</span><span>Wise</span><span>Anything you prefer</span></div>
+</div></section>
+
+<section id="why"><div class="wrap">
+  <div class="eb rv">02 · Why</div>
+  <h2 class="sp" data-s>Why? Discord server verification.</h2>
+  <div class="stage" id="s3"></div>
+  <p class="lead rv">A server linked from a real Steam page has public proof behind it. That is what servers and agencies pay for.</p>
+  <div class="why">
+    <div class="card tilt rv"><svg class="ico" viewBox="0 0 48 48"><rect x="5" y="9" width="38" height="30" rx="6"/><path d="M5 18h38M25 29h8"/><path d="M15 29l3-3a3.5 3.5 0 0 1 5 5l-1 1"/></svg><h3>A link on a real store page</h3><p>Public, permanent, and tied to an actual game.</p></div>
+    <div class="card tilt rv" style="--d:1"><svg class="ico" viewBox="0 0 48 48"><circle cx="24" cy="24" r="17"/><path d="M16 24.5l6 6 11-13"/></svg><h3>Proof you can show clients</h3><p>Agencies back up their reach with a link anyone can check.</p></div>
+    <div class="card tilt rv" style="--d:2"><svg class="ico" viewBox="0 0 48 48"><circle cx="24" cy="24" r="6"/><circle cx="24" cy="24" r="17"/><path d="M24 4v6M24 38v6M4 24h6M38 24h6"/></svg><h3>Reach where players look</h3><p>Your invite sits where people already read about games.</p></div>
   </div>
-</div>
+  <p class="fine rv">SideQuest placements are our own service. Discord's official verified badge is granted by Discord only.</p>
+</div></section>
 
 <section id="how"><div class="wrap">
-  <div class="sh"><h2 class="rv">Three steps. One link.</h2><p class="rv" style="--i:1">No contract maze, no tracking scripts, no changes to your game. We pay for a single line on a page that is not earning attention anymore.</p></div>
+  <div class="eb rv">03 · Process</div>
+  <h2 class="sp" data-s>Three steps. Done.</h2>
   <div class="steps">
-    <div class="step rv"><svg viewBox="0 0 160 84" class="il"><rect x="6" y="8" width="148" height="68" rx="9"/><path d="M6 26h148"/><circle cx="17" cy="17" r="1.6"/><circle cx="25" cy="17" r="1.6"/><rect x="40" y="12" width="84" height="10" rx="5"/><path d="M26 44h56M26 56h38"/><path d="M104 52l8-8a6 6 0 0 1 8.5 8.5l-3 3m-5-1l-8 8a6 6 0 0 1-8.5-8.5l3-3"/></svg><h3>Paste your Steam link</h3><p>We check that the page is inactive and has no Discord link yet.</p></div>
-    <div class="step rv" style="--i:1"><svg viewBox="0 0 160 84" class="il"><path d="M20 42 52 10h52l24 24-32 32-24 8-40-8z" transform="translate(6 2)"/><circle cx="96" cy="26" r="5"/><path d="M52 44h34M52 54h22"/></svg><h3>Name your price</h3><p>Tell us what the placement is worth to you and how you want to be paid.</p></div>
-    <div class="step rv" style="--i:2"><svg viewBox="0 0 160 84" class="il"><circle cx="46" cy="42" r="30"/><path d="M32 42l10 10 18-20"/><path d="M92 28h44M92 42h44M92 56h28" stroke-dasharray="2 6"/></svg><h3>Agree, add the link, get paid</h3><p>If we accept, we send you the link and settle the payment with you directly.</p></div>
+    <div class="card tilt rv"><span class="sn">Step 1</span><h3>Paste your Steam link</h3><p>We check in seconds if your page is available.</p></div>
+    <div class="card tilt rv" style="--d:1"><span class="sn">Step 2</span><h3>Name your price</h3><p>From $100 to $1,000, paid the way you prefer.</p></div>
+    <div class="card tilt rv" style="--d:2"><span class="sn">Step 3</span><h3>Add the link, get paid</h3><p>We send you the Discord link and settle the payment.</p></div>
   </div>
 </div></section>
 
-<section id="sell"><div class="wrap grid2">
-  <div>
-    <h2 class="rv">Is your page available?</h2>
-    <p class="rv" style="--i:1;color:var(--m);font-size:16.5px;margin-top:20px;max-width:440px">Paste the store link of your game. We read the public Steam data, tell you right away if we can place on it, and you send your price from the same screen.</p>
-    <p class="fine rv" style="--i:2">We only look at public Steam data: players now, reviews, release date and whether a Discord link is already there.</p>
-  </div>
-  <div class="card rv" style="--i:1">
+<section id="submit"><div class="wrap">
+  <div class="eb rv">04 · Submit</div>
+  <h2 class="sp" data-s>Submit your game.</h2>
+  <p class="lead rv">Paste your Steam link. We tell you instantly if your page is available, then you name your price.</p>
+  <div class="form card tilt rv">
     <form id="fCheck" novalidate>
-      <div class="fld"><label for="url">Steam store link</label>
-        <div class="row"><input class="in" id="url" placeholder="https://store.steampowered.com/app/12345" autocomplete="off" inputmode="url"><button class="btn pri" style="height:44px" id="bCheck" type="submit">Check</button></div></div>
+      <div class="fld"><label for="url">Steam store link</label><div class="row"><input class="in" id="url" placeholder="https://store.steampowered.com/app/12345" autocomplete="off" inputmode="url"><button class="btn pri mag" style="height:50px;padding:0 24px" id="bCheck" type="submit">Check</button></div></div>
       <input class="hp" name="site" tabindex="-1" autocomplete="off" aria-hidden="true">
     </form>
     <div class="err" id="eCheck" role="status"></div>
@@ -170,85 +174,131 @@ footer{border-top:1px solid var(--line);padding:30px 0 40px;color:var(--m);font-
   </div>
 </div></section>
 
-<section id="agencies"><div class="wrap">
-  <div class="sh"><h2 class="rv">For Discord servers and agencies</h2><p class="rv" style="--i:1">A Discord link on an established Steam store page puts your server where players already look. If you run a server or an agency and want that placement, tell us.</p></div>
-  <div class="ag">
-    <div class="rv"><svg viewBox="0 0 40 40" class="il" style="width:40px;margin-bottom:18px"><rect x="4" y="7" width="32" height="26" rx="5"/><path d="M4 15h32M22 25h6"/><path d="M14 25l3-3a3 3 0 0 1 4 4l-1 1"/></svg><h3>A link on a real store page</h3><p>Your invite sits on a public Steam page, not in a feed that disappears in a day.</p></div>
-    <div class="rv" style="--i:1"><svg viewBox="0 0 40 40" class="il" style="width:40px;margin-bottom:18px"><circle cx="20" cy="20" r="14"/><path d="M13 20.5l5 5 9-11"/></svg><h3>Something to show clients</h3><p>Agencies use placements to back up their reach with a link anyone can check.</p></div>
-  </div>
-  <p class="fine rv">SideQuest placements are our own service and are not Discord verification. Discord's official verified badge is granted by Discord only.</p>
-</div></section>
-
-<section id="contact"><div class="wrap grid2">
-  <div><h2 class="rv">Talk to us</h2><p class="rv" style="--i:1;color:var(--m);font-size:16.5px;margin-top:20px;max-width:440px">Questions, a bulk offer, or a server that wants a placement. Leave the best way to reach you and we will reply there.</p></div>
-  <div class="card rv" style="--i:1">
+<section id="contact"><div class="wrap">
+  <div class="eb rv">05 · Contact</div>
+  <h2 class="sp" data-s>Contact us.</h2>
+  <p class="lead rv">Questions, a bulk offer, or a server that wants a placement. Leave the best way to reach you.</p>
+  <div class="form card tilt rv">
     <form id="fContact" novalidate>
-      <div class="fld"><label>Reach me on</label>
-        <div class="seg" id="seg"><i class="thumb"></i><button type="button" class="on">Email</button><button type="button">Twitter / X</button><button type="button">Discord</button><button type="button">Telegram</button></div></div>
+      <div class="fld"><label>Reach me on</label><div class="seg" id="seg"><i class="thumb"></i><button type="button" class="on">Email</button><button type="button">Twitter / X</button><button type="button">Discord</button><button type="button">Telegram</button></div></div>
       <div class="fld"><label for="cc" id="cl">Email address</label><input class="in" id="cc" placeholder="you@studio.com" autocomplete="off"></div>
       <div class="fld"><label for="cm">Message</label><textarea class="in" id="cm" placeholder="Tell us what you need"></textarea></div>
       <input class="hp" name="site" tabindex="-1" autocomplete="off" aria-hidden="true">
-      <button class="btn pri lg" style="width:100%" type="submit" id="bContact">Send message</button>
-      <div class="err" id="eContact" role="status"></div>
+      <button class="btn pri mag" style="width:100%" type="submit" id="bContact">Send message</button><div class="err" id="eContact" role="status"></div>
     </form>
   </div>
 </div></section>
 </main>
-
-<footer><div class="wrap">
-  <div class="fl"><span>SideQuest · side-quest.pro</span><span>Not affiliated with Valve, Steam or Discord.</span></div>
-</div></footer>
+<footer><p class="legal">SideQuest · side-quest.pro · Not affiliated with Valve, Steam or Discord.</p></footer>
 <div id="toasts"></div>
 
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 <script>
 const $=(s,r=document)=>r.querySelector(s),$$=(s,r=document)=>[...r.querySelectorAll(s)];
 const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const RM=matchMedia('(prefers-reduced-motion:reduce)').matches;
+/* ---- sound (soft synthesized UI sounds, no files) ---- */
+let AC,MB,RV,NB,on=localStorage.getItem('snd')!=='0';
+function ac(){if(AC)return AC;AC=new(window.AudioContext||window.webkitAudioContext)();const cp=AC.createDynamicsCompressor();cp.threshold.value=-20;cp.ratio.value=4;cp.connect(AC.destination);
+MB=AC.createGain();MB.gain.value=.9;MB.connect(cp);const L=AC.sampleRate*1.8,rb=AC.createBuffer(2,L,AC.sampleRate);for(let c=0;c<2;c++){const d=rb.getChannelData(c);for(let i=0;i<L;i++)d[i]=(Math.random()*2-1)*Math.pow(1-i/L,3)}
+RV=AC.createConvolver();RV.buffer=rb;const w=AC.createGain();w.gain.value=.22;RV.connect(w);w.connect(MB);
+NB=AC.createBuffer(1,AC.sampleRate,AC.sampleRate);const nd=NB.getChannelData(0);for(let i=0;i<nd.length;i++)nd[i]=Math.random()*2-1;return AC}
+function bell(f,v,d,w){if(!on)return;try{const a=ac(),n=a.currentTime+(w||0);[[1,1],[2.01,.32],[3.97,.1]].forEach(([m,g],i)=>{const o=a.createOscillator(),e=a.createGain();o.frequency.value=f*m;e.gain.setValueAtTime(0,n);e.gain.linearRampToValueAtTime(v*g,n+.008);e.gain.exponentialRampToValueAtTime(1e-4,n+d/(i+1));o.connect(e);e.connect(MB);e.connect(RV);o.start(n);o.stop(n+d)})}catch(e){}}
+function nz(f,q,v,d,f2){if(!on)return;try{const a=ac(),n=a.currentTime,s=a.createBufferSource(),b=a.createBiquadFilter(),e=a.createGain();s.buffer=NB;b.type='bandpass';b.Q.value=q;b.frequency.setValueAtTime(f,n);if(f2)b.frequency.exponentialRampToValueAtTime(f2,n+d);e.gain.setValueAtTime(0,n);e.gain.linearRampToValueAtTime(v,n+Math.min(d*.3,.25));e.gain.exponentialRampToValueAtTime(1e-4,n+d);s.connect(b);b.connect(e);e.connect(MB);s.start(n,Math.random()*.4);s.stop(n+d+.05)}catch(e){}}
+function thump(f,f2,v,d){if(!on)return;try{const a=ac(),n=a.currentTime,o=a.createOscillator(),e=a.createGain();o.frequency.setValueAtTime(f,n);o.frequency.exponentialRampToValueAtTime(f2,n+d);e.gain.setValueAtTime(0,n);e.gain.linearRampToValueAtTime(v,n+.004);e.gain.exponentialRampToValueAtTime(1e-4,n+d);o.connect(e);e.connect(MB);o.start(n);o.stop(n+d+.02)}catch(e){}}
+function soft(f,v,d,w){if(!on)return;try{const a=ac(),n=a.currentTime+(w||0),o=a.createOscillator(),e=a.createGain(),lp=a.createBiquadFilter();lp.type='lowpass';lp.frequency.value=2200;o.frequency.value=f;e.gain.setValueAtTime(0,n);e.gain.linearRampToValueAtTime(v,n+.018);e.gain.exponentialRampToValueAtTime(1e-4,n+d);o.connect(e);e.connect(lp);lp.connect(MB);lp.connect(RV);o.start(n);o.stop(n+d+.05)}catch(e){}}
+const snd={hov(){},sec(){},clk:()=>soft(520,.016,.22),ok:()=>{soft(659.25,.028,1,0);soft(987.77,.022,1.2,.13)},err:()=>soft(196,.03,.4)};
+const sb=$('#snd');sb.classList.toggle('off',!on);
+sb.onclick=()=>{on=!on;localStorage.setItem('snd',on?'1':'0');sb.classList.toggle('off',!on);snd.clk()};
+addEventListener('pointerdown',e=>{try{ac().resume()}catch(_){}if(e.target.closest('a,button,select'))snd.clk()},{passive:true});
+/* ---- split headings ---- */
+$$('[data-s]').forEach(h=>{let i=0;const w=n=>{[...n.childNodes].forEach(c=>{if(c.nodeType===3){const f=document.createDocumentFragment();c.textContent.split(/(\s+)/).forEach(p=>{if(!p)return;if(/^\s+$/.test(p)){f.append(' ');return}const s=document.createElement('span');s.className='w';[...p].forEach(ch=>{const x=document.createElement('span');x.className='ch';x.style.setProperty('--i',i++);x.textContent=ch;s.append(x)});f.append(s)});c.replaceWith(f)}else w(c)})};w(h)});
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('show');io.unobserve(e.target);if(e.target.matches('h2'))snd.sec();if(e.target.dataset.cnt)count(e.target)}}),{threshold:.2});
+$$('.rv,h2.sp').forEach(e=>io.observe(e));
+function count(el){$$('[data-to]',el).forEach(n=>{const to=+n.dataset.to,t0=performance.now();(function f(t){const p=Math.min((t-t0)/1800,1),v=Math.round(to*(1-Math.pow(1-p,4)));n.textContent=v.toLocaleString('en');if(p<1)requestAnimationFrame(f)})(t0)})}
+$('.num').dataset.cnt=1;
+let lenis;if(window.Lenis&&!RM){lenis=new Lenis({lerp:.085,wheelMultiplier:.9});lenis.stop();(function r(t){lenis.raf(t);requestAnimationFrame(r)})(0)}
+document.addEventListener('click',e=>{const a=e.target.closest('a[href^="#"]');if(!a)return;const t=$(a.getAttribute('href'));if(!t)return;e.preventDefault();lenis?lenis.scrollTo(t,{duration:1.5}):t.scrollIntoView({behavior:'smooth'})});
+/* ---- intro ---- */
+let go=()=>{lenis&&lenis.start();document.body.classList.remove('lock');document.body.classList.add('go');$('h1').classList.add('show');setTimeout(()=>$('#intro').classList.add('gone'),1500)};
+(function(){const pc=$('#pc'),t0=performance.now();(function f(t){const p=Math.min((t-t0)/(RM?1:1600),1);pc.textContent=String(Math.round(p*100)).padStart(3,'0');if(p<1)return requestAnimationFrame(f);$('#intro').classList.add('out');snd.ok&&0;setTimeout(go,350)})(t0)})();
+/* ---- cursor, magnetic, tilt, progress ---- */
+let mx=innerWidth/2,my=innerHeight/2,cx=mx,cy=my;const cd=$('#cd'),cr=$('#cr');
+addEventListener('pointermove',e=>{mx=e.clientX;my=e.clientY;cd.style.transform=`translate(${mx}px,${my}px)`;const T=e.target;cr.classList.toggle('t',!!T.closest('input,textarea'));cr.classList.toggle('h',!!T.closest('a,button,select'))});
+$$('.mag').forEach(b=>{b.onpointermove=e=>{const r=b.getBoundingClientRect();b.style.transform=`translate(${(e.clientX-r.left-r.width/2)*.25}px,${(e.clientY-r.top-r.height/2)*.35}px)`};b.onpointerleave=()=>b.style.transform=''});
+$$('.tilt').forEach(c=>{c.onpointermove=e=>{const r=c.getBoundingClientRect(),x=(e.clientX-r.left)/r.width,y=(e.clientY-r.top)/r.height;c.style.setProperty('--x',x*100+'%');c.style.setProperty('--y',y*100+'%');c.style.transform=`perspective(900px) rotateY(${(x-.5)*8}deg) rotateX(${(.5-y)*8}deg)`};c.onpointerleave=()=>c.style.transform=''});
+/* ---- WebGL scene ---- */
+(function(){if(RM||!window.THREE)return;let R;try{R=new THREE.WebGLRenderer({canvas:$('#gl'),antialias:true,alpha:true})}catch(e){return}
+R.setPixelRatio(Math.min(devicePixelRatio,innerWidth<700?1.5:2));const S=new THREE.Scene(),C=new THREE.PerspectiveCamera(40,1,.1,100);C.position.z=10;
+S.add(new THREE.AmbientLight(0xffffff,.45));const L1=new THREE.PointLight(0xffffff,1.9);L1.position.set(4,5,6);S.add(L1);const L2=new THREE.PointLight(0xffffff,.8);L2.position.set(-6,-3,4);S.add(L2);
+const M=(c,m,r)=>new THREE.MeshStandardMaterial({color:c,metalness:m,roughness:r}),wh=M(0xf4f4f0,.55,.28),dk=M(0x161616,.7,.35);
+const mesh=(g,m)=>new THREE.Mesh(g,m);
+const pw=M(0xf4f4f0,.25,.3),ink=M(0x0a0a0a,.5,.3),link=new THREE.Group(),pad=new THREE.Group();pad.rotation.order='YXZ';
+const gs=new THREE.Shape();gs.moveTo(-1,.72);gs.bezierCurveTo(-.3,.82,.3,.82,1,.72);gs.bezierCurveTo(1.55,.7,1.85,.3,1.95,-.3);gs.bezierCurveTo(2.05,-.95,1.8,-1.2,1.45,-1.15);gs.bezierCurveTo(1.1,-1.1,.95,-.6,.6,-.42);gs.bezierCurveTo(.3,-.32,-.3,-.32,-.6,-.42);gs.bezierCurveTo(-.95,-.6,-1.1,-1.1,-1.45,-1.15);gs.bezierCurveTo(-1.8,-1.2,-2.05,-.95,-1.95,-.3);gs.bezierCurveTo(-1.85,.3,-1.55,.7,-1,.72);
+const pgm=new THREE.ExtrudeGeometry(gs,{depth:.5,bevelEnabled:true,bevelThickness:.1,bevelSize:.1,bevelSegments:6,curveSegments:24});pgm.translate(0,.2,-.25);pad.add(mesh(pgm,pw));
+const Z=.35,bts=[],cy=(r,h)=>new THREE.CylinderGeometry(r,r,h,32);
+const put=(g,m,x,y,h,fl)=>{const o=mesh(g,m);o.position.set(x,y,Z+h/2);if(fl)o.rotation.x=Math.PI/2;pad.add(o);return o};
+put(new THREE.BoxGeometry(.64,.22,.16),ink,-1.2,.34,.16);put(new THREE.BoxGeometry(.22,.64,.16),ink,-1.2,.34,.16);
+[[1.2,.6],[1.2,.08],[.94,.34],[1.46,.34]].forEach(([x,y])=>{const o=put(cy(.15,.16),ink,x,y,.16,1);bts.push([o,o.position.z])});
+[-.5,.5].forEach(x=>{put(cy(.22,.14),ink,x,.06,.14,1);put(cy(.14,.08),pw,x,.06,.22+.08,1)});
+[-.2,.2].forEach(x=>put(cy(.07,.1),ink,x,.52,.1,1));
+[-1,1].forEach(d=>{const o=mesh(new THREE.BoxGeometry(.7,.18,.4),ink);o.position.set(d*1.1,.9,0);o.rotation.z=-d*.1;pad.add(o)});
+link.add(pad);const DL=new THREE.DirectionalLight(0xffffff,.9);DL.position.set(-3,2,4);S.add(DL);
+let sx=0,sy=0;
+function heroAnim(t,nx,ny){sx+=(nx-sx)*.05;sy+=(ny-sy)*.05;const f=Math.min((t%10)/3.6,1),ez=f*f*f*(f*(f*6-15)+10),bump=Math.sin(f*Math.PI);
+pad.rotation.set(.22+sy*.45+bump*.12,Math.sin(t*.35)*.4+sx*.4+(Math.floor(t/10)+ez)*Math.PI*2,Math.sin(t*.45)*.05+bump*.1);
+pad.position.y=Math.sin(t*.9)*.1+bump*.18;pad.scale.setScalar(1+bump*.08);
+bts.forEach(([o,z],i)=>{o.position.z=z-.06*Math.max(0,Math.sin(t*2.6-i*1.4))*(1+bump)});
+L1.position.set(Math.sin(t*.6)*6,3+Math.cos(t*.5)*2,5)}
+const coins=new THREE.Group(),cl=[];for(let i=0;i<8;i++){const c=new THREE.Group();c.add(mesh(new THREE.CylinderGeometry(1,1,.17,56),wh));const r=mesh(new THREE.TorusGeometry(.72,.025,10,56),dk);r.rotation.x=Math.PI/2;r.position.y=.09;c.add(r);c.userData.y=i*.21-.7;coins.add(c);cl.push(c)}
+const badge=new THREE.Group(),bd=mesh(new THREE.CylinderGeometry(1.3,1.3,.34,8),wh),bi=mesh(new THREE.CylinderGeometry(1,1,.4,8),dk);bd.rotation.x=bi.rotation.x=Math.PI/2;
+const ck=mesh(new THREE.TubeGeometry(new THREE.CatmullRomCurve3([new THREE.Vector3(-.5,0,.25),new THREE.Vector3(-.15,-.4,.25),new THREE.Vector3(.55,.42,.25)]),24,.1,10),wh);badge.add(bd,bi,ck);
+const st=[['#s1',link],['#s2',coins],['#s3',badge]];st.forEach(([,g])=>{g.userData.t=0;g.visible=false;S.add(g)});
+const N=700,pp=new Float32Array(N*3);for(let i=0;i<N*3;i++)pp[i]=(Math.random()-.5)*(i%3==2?10:26);const pg=new THREE.BufferGeometry();pg.setAttribute('position',new THREE.BufferAttribute(pp,3));
+const pts=new THREE.Points(pg,new THREE.PointsMaterial({color:0xffffff,size:.03,transparent:true,opacity:.5}));S.add(pts);
+function size(){R.setSize(innerWidth,innerHeight,false);C.aspect=innerWidth/innerHeight;C.updateProjectionMatrix()}size();addEventListener('resize',size);
+const hh=2*10*Math.tan(THREE.MathUtils.degToRad(20));let t=0;
+(function loop(){requestAnimationFrame(loop);t=performance.now()/1000;const k=hh/innerHeight,nx=mx/innerWidth-.5,ny=my/innerHeight-.5;
+st.forEach(([sel,g])=>{const r=$(sel).getBoundingClientRect(),vis=r.bottom>-120&&r.top<innerHeight+120;g.visible=vis;if(!vis){g.userData.t=0;return}
+g.userData.t+=(1-g.userData.t)*.06;const e=g.userData.t;g.position.set((r.left+r.width/2-innerWidth/2)*k,-(r.top+r.height/2-innerHeight/2)*k+(1-e)*-1.2,0);g.scale.setScalar(Math.max(Math.min(r.height,r.width*.75)*k/(g===link?3.8:3.3)*e,.001));
+if(g===link){g.rotation.set(0,nx*.3,0);heroAnim(t,nx,ny)}else{g.rotation.y=t*.5+nx*1.2;g.rotation.x=.35+ny*.6;g.rotation.z=Math.sin(t*.7)*.08}});
+const pr=Math.min(Math.max((innerHeight-$('#s2').getBoundingClientRect().top)/(innerHeight*.9),0),1);cl.forEach((c,i)=>{const on=i<=pr*7.5,ty=on?c.userData.y:5;c.position.y+=(ty-c.position.y)*.12;c.visible=c.position.y<4.5});
+pts.rotation.y=t*.02+nx*.1;pts.position.y=scrollY*.0016;R.render(S,C)})()})();
+/* cursor ring lerp + progress */
+(function f(){cx+=(mx-cx)*.16;cy+=(my-cy)*.16;cr.style.transform=`translate(${cx}px,${cy}px)`;$('#prog').style.transform=`scaleX(${scrollY/Math.max(1,document.body.scrollHeight-innerHeight)})`;requestAnimationFrame(f)})();
+/* ---- forms ---- */
+function toast(t){const e=document.createElement('div');e.className='toast';e.innerHTML='<svg class="ic" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="m8.5 12.3 2.4 2.4 4.6-5"/></svg>'+esc(t);$('#toasts').append(e);setTimeout(()=>{e.classList.add('out');setTimeout(()=>e.remove(),300)},3800)}
+const api=async(a,b)=>{try{const r=await fetch('/api/sq?a='+a,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(b)});const d=await r.json().catch(()=>({}));if(!r.ok)throw new Error(d.error||'Request failed');return d}catch(e){snd.err();throw new Error(e.message==='Failed to fetch'?'No connection. Try again.':e.message)}};
 const nf=n=>Number(n).toLocaleString('en');
-function toast(t){const e=document.createElement('div');e.className='toast';e.innerHTML='<svg class="ic"><use href="#i-ok"/></svg>'+esc(t);$('#toasts').append(e);setTimeout(()=>{e.classList.add('out');setTimeout(()=>e.remove(),300)},3800)}
-const api=async(a,b)=>{try{const r=await fetch('/api/sq?a='+a,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(b)});const d=await r.json().catch(()=>({}));if(!r.ok)throw new Error(d.error||'Request failed');return d}catch(e){throw new Error(e.message==='Failed to fetch'?'No connection. Try again.':e.message)}};
-const bar=on=>$('#bar').classList.toggle('run',on);
-// hero glow + player count tick
-$('#hero').addEventListener('mousemove',e=>{const r=e.currentTarget.getBoundingClientRect();e.currentTarget.style.setProperty('--mx',(e.clientX-r.left)+'px');e.currentTarget.style.setProperty('--my',(e.clientY-r.top)+'px')});
-(()=>{let n=38;const el=$('#mp');if(matchMedia('(prefers-reduced-motion:reduce)').matches)return;setTimeout(()=>{const t=setInterval(()=>{el.textContent=--n;if(n<=0)clearInterval(t)},45)},1000)})();
-// scroll reveal
-const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("show");io.unobserve(e.target)}}),{threshold:.15});$$('.rv').forEach(e=>io.observe(e));
-// segmented control
 const seg=$('#seg'),PH={Email:['Email address','you@studio.com'],'Twitter / X':['Twitter / X handle','@yourhandle'],Discord:['Discord username','username'],Telegram:['Telegram username','@username']};
-function thumb(){const b=$('button.on',seg);if(!b)return;const t=$('.thumb',seg);t.style.width=b.offsetWidth+'px';t.style.transform=`translateX(${b.offsetLeft}px)`}
+function thumb(){const b=$('button.on',seg),t=$('.thumb',seg);t.style.width=b.offsetWidth+'px';t.style.transform=`translateX(${b.offsetLeft}px)`}
 seg.onclick=e=>{const b=e.target.closest('button');if(!b)return;$$('button',seg).forEach(x=>x.classList.toggle('on',x===b));thumb();const p=PH[b.textContent];$('#cl').textContent=p[0];$('#cc').placeholder=p[1]};
 addEventListener('load',thumb);addEventListener('resize',thumb);document.fonts&&document.fonts.ready.then(thumb);
-// check game
 let cur=null;
 $('#fCheck').addEventListener('submit',async e=>{e.preventDefault();const url=$('#url').value.trim(),er=$('#eCheck'),res=$('#res');er.textContent='';res.classList.remove('on');
-  if(!url){er.textContent='Paste a Steam store link first.';return}
-  const b=$('#bCheck');b.disabled=true;b.textContent='Checking…';bar(true);
-  try{const d=await api('check',{url,site:$('#fCheck [name=site]').value});cur=url;
-    if(!d.ok){er.textContent=d.reason;return}
-    const g=d.game;
-    $('#resIn').innerHTML=`<div class="gm"><img src="${esc(g.img)}" alt=""><div><h3>${esc(g.name)}</h3><p>${esc(g.dev||'Unknown developer')}</p></div></div>
-    <div class="kv2"><div><small>Players now</small><span>${nf(g.players)}</span></div><div><small>Reviews</small><span>${nf(g.reviews)}</span></div><div><small>Released</small><span>${esc(g.date)}</span></div></div>
-    ${d.eligible?`<span class="st ok">Available for placement</span>
-    <form id="fOffer" novalidate>
-      <div class="fld"><label for="oa">Your price</label><div class="row"><input class="in" id="oa" type="number" min="1" step="any" placeholder="150" inputmode="decimal"><select class="in" id="ocu" style="max-width:96px"><option>EUR</option><option>USD</option><option>GBP</option></select></div></div>
-      <div class="fld"><label for="op">How do you want to be paid?</label><select class="in" id="op"><option>PayPal</option><option>Bank transfer</option><option>Crypto</option><option>Wise</option><option>Other</option></select></div>
-      <div class="fld"><label for="oc">Your contact (email, Discord, Telegram or X)</label><input class="in" id="oc" placeholder="you@studio.com" autocomplete="off"></div>
-      <input class="hp" name="site" tabindex="-1" autocomplete="off" aria-hidden="true">
-      <button class="btn pri lg" style="width:100%" type="submit" id="bOffer">Send my offer</button><div class="err" id="eOffer" role="status"></div></form>`
-    :`<span class="st no">Not available</span><p style="color:var(--m)">${esc(d.reason)} You can still <a href="#contact" style="text-decoration:underline;text-underline-offset:3px">talk to us</a>.</p>`}`;
-    res.classList.add('on');
-  }catch(x){er.textContent=x.message}finally{b.disabled=false;b.textContent='Check';bar(false)}});
+if(!url){er.textContent='Paste a Steam store link first.';return}
+const b=$('#bCheck');b.disabled=true;b.textContent='Checking…';
+try{const d=await api('check',{url,site:$('#fCheck [name=site]').value});cur=url;if(!d.ok){er.textContent=d.reason;return}const g=d.game;
+$('#resIn').innerHTML=`<div class="gm"><img src="${esc(g.img)}" alt=""><div><h3>${esc(g.name)}</h3><p>${esc(g.dev||'Unknown developer')}</p></div></div>
+<div class="kv2"><div><small>Players now</small><span>${nf(g.players)}</span></div><div><small>Reviews</small><span>${nf(g.reviews)}</span></div><div><small>Released</small><span>${esc(g.date)}</span></div></div>
+${d.eligible?`<span class="st ok">Available for placement</span>
+<form id="fOffer" novalidate><div class="fld"><label for="oa">Your price</label><div class="row"><input class="in" id="oa" type="number" min="1" step="any" placeholder="150" inputmode="decimal"><select class="in" id="ocu" style="max-width:100px"><option>USD</option><option>EUR</option><option>GBP</option></select></div></div>
+<div class="fld"><label for="op">How do you want to be paid?</label><select class="in" id="op"><option>PayPal</option><option>Bank transfer</option><option>Crypto</option><option>Wise</option><option>Other</option></select></div>
+<div class="fld"><label for="oc">Your contact (email, Discord, Telegram or X)</label><input class="in" id="oc" placeholder="you@studio.com" autocomplete="off"></div>
+<input class="hp" name="site" tabindex="-1" autocomplete="off" aria-hidden="true"><button class="btn pri" style="width:100%" type="submit" id="bOffer">Send my offer</button><div class="err" id="eOffer" role="status"></div></form>`
+:`<span class="st no">Not available</span><p style="color:var(--m)">${esc(d.reason)} You can still <a href="#contact" style="text-decoration:underline">talk to us</a>.</p>`}`;
+res.classList.add('on');if(d.eligible)snd.ok()}catch(x){er.textContent=x.message}finally{b.disabled=false;b.textContent='Check'}});
 $('#resIn').addEventListener('submit',async e=>{if(e.target.id!=='fOffer')return;e.preventDefault();const er=$('#eOffer'),b=$('#bOffer');er.textContent='';
-  const amount=$('#oa').value,contact=$('#oc').value.trim();if(!(+amount>0)||!contact){er.textContent='Add your price and a way to reach you.';return}
-  b.disabled=true;b.textContent='Sending…';bar(true);
-  try{await api('offer',{url:cur,amount,currency:$('#ocu').value,payment:$('#op').value,contact,site:$('#fOffer [name=site]').value});
-    $('#resIn').innerHTML='<div style="padding:26px 0 6px"><span class="st ok">Offer sent</span><p style="color:var(--m)">We received your price and will reply on the contact you gave us.</p></div>';toast('Offer sent')}
-  catch(x){er.textContent=x.message;b.disabled=false;b.textContent='Send my offer'}finally{bar(false)}});
-// contact
+const amount=$('#oa').value,contact=$('#oc').value.trim();if(!(+amount>0)||!contact){er.textContent='Add your price and a way to reach you.';snd.err();return}
+b.disabled=true;b.textContent='Sending…';
+try{await api('offer',{url:cur,amount,currency:$('#ocu').value,payment:$('#op').value,contact,site:$('#fOffer [name=site]').value});$('#resIn').innerHTML='<div style="padding:26px 0 6px"><span class="st ok">Offer sent</span><p style="color:var(--m)">We received your price and will reply on the contact you gave us.</p></div>';toast('Offer sent');snd.ok()}
+catch(x){er.textContent=x.message;b.disabled=false;b.textContent='Send my offer'}});
 $('#fContact').addEventListener('submit',async e=>{e.preventDefault();const er=$('#eContact'),b=$('#bContact');er.textContent='';
-  const contact=$('#cc').value.trim(),message=$('#cm').value.trim();if(!contact||!message){er.textContent='Add your contact and a message.';return}
-  b.disabled=true;b.textContent='Sending…';bar(true);
-  try{await api('contact',{channel:$('button.on',seg).textContent,contact,message,site:$('#fContact [name=site]').value});toast('Message sent');$('#cm').value='';$('#cc').value=''}
-  catch(x){er.textContent=x.message}finally{b.disabled=false;b.textContent='Send message';bar(false)}});
+const contact=$('#cc').value.trim(),message=$('#cm').value.trim();if(!contact||!message){er.textContent='Add your contact and a message.';snd.err();return}
+b.disabled=true;b.textContent='Sending…';
+try{await api('contact',{channel:$('button.on',seg).textContent,contact,message,site:$('#fContact [name=site]').value});toast('Message sent');snd.ok();$('#cm').value='';$('#cc').value=''}
+catch(x){er.textContent=x.message}finally{b.disabled=false;b.textContent='Send message'}});
 </script>
 </body>
 </html>
