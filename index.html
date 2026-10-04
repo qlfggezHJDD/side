@@ -1,0 +1,254 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SideQuest · Get paid for a link on your Steam page</title>
+<meta name="description" content="SideQuest pays developers to place one Discord link on the Steam page of a game that is no longer active. Set your price, keep your page.">
+<meta property="og:title" content="SideQuest · Get paid for a link on your Steam page">
+<meta property="og:url" content="https://side-quest.pro">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='9' fill='%23fff'/%3E%3Cpath d='M9.5 22.5c0-5.5 13-3.5 13-10' fill='none' stroke='%23000' stroke-width='2.2' stroke-linecap='round' stroke-dasharray='.1 4.2'/%3E%3Ccircle cx='9.5' cy='22.5' r='3'/%3E%3Cpath d='M22.5 6.5l3.6 3.6-3.6 3.6-3.6-3.6z'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300..700&family=Geist+Mono:wght@400..600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#050505;--p:#0B0B0B;--p2:#131313;--line:rgba(255,255,255,.09);--l2:rgba(255,255,255,.2);--t:#F5F5F2;--m:#8B8B86;--d:#4B4B48;--ease:cubic-bezier(.22,1,.36,1);--mx:50%;--my:0}
+*{box-sizing:border-box;margin:0}
+html{background:var(--bg);scroll-behavior:smooth;scroll-padding-top:80px}
+body{color:var(--t);font:15px/1.55 Geist,Inter,ui-sans-serif,system-ui,sans-serif;-webkit-font-smoothing:antialiased;min-height:100vh;overflow-x:hidden}
+body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:90;opacity:.07;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 .9 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+button,input,select,textarea{font:inherit;color:inherit}button{cursor:pointer;border:0;background:none}a{color:inherit;text-decoration:none}
+::selection{background:#fff;color:#000}
+:focus-visible{outline:1.5px solid #fff;outline-offset:3px;border-radius:6px}
+.mono{font-family:"Geist Mono",ui-monospace,monospace;font-feature-settings:"tnum"}
+.ic{width:17px;height:17px;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;flex:none}
+.wrap{max-width:1280px;margin:0 auto;padding:0 32px}
+header{position:sticky;top:0;z-index:20;background:rgba(5,5,5,.78);backdrop-filter:blur(16px);border-bottom:1px solid var(--line)}
+.hd{display:flex;align-items:center;gap:10px;height:62px}
+.brand{display:flex;align-items:center;gap:11px;margin-right:auto;font-weight:600;letter-spacing:-.02em}
+.brand .lg{width:30px;height:30px;transition:transform .6s var(--ease)}.brand:hover .lg{transform:rotate(-12deg) scale(1.06)}
+.nav{display:flex;gap:4px;margin-right:8px}.nav a{padding:7px 12px;border-radius:8px;color:var(--m);font-weight:550;transition:color .2s,background .2s}.nav a:hover{color:#fff;background:var(--p2)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;height:36px;padding:0 14px;border-radius:9px;font-weight:550;transition:background .25s,color .25s,transform .2s var(--ease),box-shadow .25s;position:relative}
+.btn:active{transform:scale(.96)}.btn:disabled{opacity:.4;cursor:default}
+.btn.ghost{box-shadow:inset 0 0 0 1px var(--l2)}.btn.ghost:hover{background:#fff;color:#000}
+.btn.pri{background:#fff;color:#000}.btn.pri:hover:not(:disabled){box-shadow:0 0 0 4px rgba(255,255,255,.14)}
+.btn.lg{height:46px;padding:0 20px;border-radius:11px}
+#bar{height:1px;position:relative;overflow:hidden}#bar i{position:absolute;inset:0 auto 0 0;width:0;background:#fff}
+#bar.run i{width:100%;transition:width 1.4s var(--ease)}#bar.run i::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,transparent,#000 50%,transparent);animation:sw 1.2s linear infinite}
+@keyframes sw{from{transform:translateX(-100%)}to{transform:translateX(100%)}}
+/* hero */
+.hero{position:relative;padding:72px 0 56px;overflow:hidden}
+.hero::before{content:"";position:absolute;inset:0;background:radial-gradient(560px circle at var(--mx) var(--my),rgba(255,255,255,.07),transparent 70%);pointer-events:none}
+.hg{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr);align-items:center;gap:64px;position:relative}
+.lbl{color:var(--m);font-size:13.5px;display:flex;align-items:center;gap:10px;overflow:hidden}
+.lbl span{display:inline-block;transform:translateY(110%);animation:up .9s var(--ease) .1s forwards}
+.lbl i{width:6px;height:6px;background:#fff;animation:blink 2.2s ease-in-out infinite}
+@keyframes blink{50%{opacity:.25}}@keyframes up{to{transform:none}}
+h1{font:500 clamp(38px,5.1vw,74px)/1.02 Geist,sans-serif;letter-spacing:-.045em;margin-top:22px}
+h1 .ln{display:block;overflow:hidden;padding-bottom:.08em}h1 .ln b{display:block;white-space:nowrap;font-weight:500;transform:translateY(105%);animation:up 1.1s var(--ease) forwards;animation-delay:calc(var(--i)*110ms + 250ms)}
+h1 .ln.dim b{color:var(--d)}
+.lead{max-width:520px;color:var(--m);font-size:17px;margin-top:28px;opacity:0;animation:fd 1s var(--ease) .9s forwards}
+@keyframes fd{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+.cta{display:flex;gap:10px;margin-top:30px;flex-wrap:wrap;opacity:0;animation:fd 1s var(--ease) 1.05s forwards}
+.kvs{display:grid;gap:12px;margin-top:44px;max-width:520px;opacity:0;animation:fd 1s var(--ease) 1.2s forwards}
+.kv{display:flex;justify-content:space-between;gap:30px;padding-bottom:10px;border-bottom:1px solid var(--line);color:var(--m)}.kv b{color:var(--t);font-weight:500;font-family:"Geist Mono",monospace}
+/* steam mock */
+.mock{border-radius:14px;background:var(--p);box-shadow:inset 0 0 0 1px var(--line);overflow:hidden;opacity:0;transform:translateY(24px);animation:mk 1.2s var(--ease) .5s forwards}
+@keyframes mk{to{opacity:1;transform:none}}
+.mk-top{display:flex;align-items:center;gap:6px;padding:11px 14px;border-bottom:1px solid var(--line);font:12px "Geist Mono",monospace;color:var(--d)}.mk-top i{width:8px;height:8px;border-radius:50%;background:var(--p2)}
+.mk-art{display:block;width:100%;height:auto;border-bottom:1px solid var(--line)}
+.mk-b{padding:18px 18px 20px}.mk-b h3{font-size:16px;font-weight:600;letter-spacing:-.02em}
+.mk-s{display:flex;gap:22px;margin:10px 0 16px;color:var(--m);font:12.5px "Geist Mono",monospace}.mk-s b{color:#fff;font-weight:500}
+.sk{height:8px;border-radius:4px;background:linear-gradient(90deg,var(--p2) 25%,#222 50%,var(--p2) 75%);background-size:200% 100%;animation:sh 1.6s linear infinite;margin-top:8px}@keyframes sh{to{background-position:-200% 0}}
+.slot{display:grid;grid-template-rows:0fr;animation:slot .9s var(--ease) 2s forwards}@keyframes slot{to{grid-template-rows:1fr}}.slot>div{overflow:hidden}
+.link{display:flex;align-items:center;gap:10px;margin-top:16px;padding:12px 14px;border-radius:10px;background:#fff;color:#000;font:13px "Geist Mono",monospace;font-weight:500;position:relative;overflow:hidden}
+.link::after{content:"";position:absolute;inset:0;background:linear-gradient(100deg,transparent 30%,rgba(0,0,0,.14) 50%,transparent 70%);transform:translateX(-100%);animation:sw 2.8s var(--ease) 3s infinite}
+.link em{margin-left:auto;font-style:normal;opacity:.55}
+/* sections */
+section{padding:96px 0;border-top:1px solid var(--line)}
+.sh{display:grid;grid-template-columns:1fr 1fr;gap:56px;margin-bottom:48px}
+h2{font:500 clamp(32px,4.4vw,56px)/1 Geist,sans-serif;letter-spacing:-.045em}
+.sh p{color:var(--m);font-size:16.5px;max-width:480px;align-self:end}
+.rv{opacity:0;transform:translateY(22px);transition:opacity .9s var(--ease),transform .9s var(--ease);transition-delay:calc(var(--i,0)*90ms)}.rv.show{opacity:1;transform:none}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--line);border-left:1px solid var(--line)}
+.step{padding:28px 26px 34px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);min-height:230px;transition:background .35s;position:relative}.step:hover{background:var(--p)}
+
+.il{width:150px;height:auto;display:block;fill:none;stroke:#fff;stroke-width:1.4;stroke-linecap:round;stroke-linejoin:round;opacity:.85}.step h3{font-size:21px;font-weight:550;letter-spacing:-.03em;margin:36px 0 8px}.step p{color:var(--m);max-width:320px}
+/* forms */
+.card{border-radius:14px;background:var(--p);box-shadow:inset 0 0 0 1px var(--line);padding:26px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start}
+.fld{display:grid;gap:8px;margin-bottom:18px}.fld label{color:var(--m);font-size:13px}
+.in,select.in,textarea.in{width:100%;height:44px;border:0;border-radius:10px;background:transparent;box-shadow:inset 0 0 0 1px var(--line);padding:0 14px;outline:0;transition:box-shadow .25s;color-scheme:dark}
+textarea.in{height:120px;padding:12px 14px;resize:vertical}.in:focus{box-shadow:inset 0 0 0 1px #fff}.in::placeholder{color:var(--d)}
+select.in option{background:#0B0B0B}
+.row{display:flex;gap:10px}.row>*{min-width:0}.row .in{flex:1}
+.seg{position:relative;display:flex;padding:3px;border-radius:10px;box-shadow:inset 0 0 0 1px var(--line);flex-wrap:wrap}
+.seg button{position:relative;z-index:1;flex:1;padding:8px 12px;border-radius:7px;color:var(--m);font-weight:550;transition:color .3s;white-space:nowrap}.seg button.on{color:#000}
+.thumb{position:absolute;top:3px;bottom:3px;left:0;border-radius:7px;background:#fff;transition:transform .5s var(--ease),width .5s var(--ease)}
+.hp{position:absolute;left:-9999px}
+.res{display:grid;grid-template-rows:0fr;transition:grid-template-rows .6s var(--ease)}.res.on{grid-template-rows:1fr}.res>div{overflow:hidden}
+.gm{display:flex;gap:16px;align-items:center;padding:18px 0 4px}
+.gm img{width:150px;aspect-ratio:460/215;border-radius:9px;object-fit:cover;filter:grayscale(1) contrast(1.05);transition:filter .5s;background:var(--p2)}.gm:hover img{filter:none}
+.gm h3{font-size:18px;font-weight:600;letter-spacing:-.02em}.gm p{color:var(--m);font:12.5px "Geist Mono",monospace}
+.st{display:inline-flex;align-items:center;height:24px;padding:0 11px;border-radius:12px;font-size:12.5px;font-weight:550;margin:16px 0}
+.st.ok{background:#fff;color:#000}.st.no{color:var(--m);box-shadow:inset 0 0 0 1px var(--line)}
+.kv2{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:6px 0 4px}.kv2 small{display:block;color:var(--d);font-size:12px}.kv2 span{font:14px "Geist Mono",monospace}
+.err{color:var(--m);font-size:13px;margin-top:12px;min-height:20px}
+.ag{display:grid;grid-template-columns:repeat(2,1fr);border-top:1px solid var(--line);border-left:1px solid var(--line)}
+.ag div{padding:26px;border-right:1px solid var(--line);border-bottom:1px solid var(--line)}.ag h3{font-size:18px;font-weight:550;letter-spacing:-.02em;margin-bottom:6px}.ag p{color:var(--m)}
+.fine{color:var(--d);font-size:12.5px;margin-top:18px;max-width:640px}
+footer{border-top:1px solid var(--line);padding:30px 0 40px;color:var(--m);font-size:13px}.fl{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+.big{font:500 clamp(70px,16vw,220px)/.85 Geist,sans-serif;letter-spacing:-.07em;color:var(--p2);margin:40px 0 0;user-select:none;white-space:nowrap}
+#toasts{position:fixed;right:24px;bottom:24px;display:grid;gap:10px;z-index:100}
+.toast{display:flex;align-items:center;gap:10px;padding:12px 16px;border-radius:10px;background:#fff;color:#000;font-weight:550;animation:tin .6s var(--ease)}.toast.out{opacity:0;transform:translateY(8px);transition:.3s}@keyframes tin{from{opacity:0;transform:translateY(16px) scale(.96)}}
+@media(max-width:900px){h1 .ln b{white-space:normal}.wrap{padding:0 16px}.hg,.sh,.grid2{grid-template-columns:1fr;gap:32px}.steps{grid-template-columns:1fr}.nav{display:none}.ag{grid-template-columns:1fr}.hero{padding-top:44px}section{padding:64px 0}.gm{flex-direction:column;align-items:flex-start}.kv2{grid-template-columns:1fr 1fr}}
+@media(prefers-reduced-motion:reduce){*{animation-duration:.01ms!important;animation-delay:0s!important;transition-duration:.01ms!important}.lbl span,h1 .ln b,.rv,.lead,.cta,.kvs,.mock{transform:none;opacity:1}.slot{grid-template-rows:1fr}}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+<symbol id="i-sword" viewBox="0 0 24 24"><path d="M18 6 10 14M14 6h4v4M8.5 11.5l4 4M10.5 13.5l-4 4"/></symbol>
+<symbol id="i-out" viewBox="0 0 24 24"><path d="M7 17 17 7M8.5 7H17v8.5"/></symbol>
+<symbol id="i-ok" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="m8.5 12.3 2.4 2.4 4.6-5"/></symbol>
+<symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5"/><path d="m20 20-4-4"/></symbol>
+<symbol id="i-link" viewBox="0 0 24 24"><path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1"/></symbol>
+</svg>
+
+<header>
+  <div class="wrap hd">
+    <a class="brand" href="#top"><svg class="lg" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="9" fill="#fff"/><path d="M9.5 22.5c0-5.5 13-3.5 13-10" fill="none" stroke="#000" stroke-width="2.2" stroke-linecap="round" stroke-dasharray="0.1 4.2"/><path d="M9.5 22.5c0-5.5 13-3.5 13-10" fill="none" stroke="#000" stroke-width="2.2" stroke-linecap="round" opacity="0"/><circle cx="9.5" cy="22.5" r="3" fill="#000"/><path d="M22.5 6.5l3.6 3.6-3.6 3.6-3.6-3.6z" fill="#000"/></svg>SideQuest</a>
+    <nav class="nav"><a href="#how">How it works</a><a href="#sell">Check your game</a><a href="#agencies">Servers</a><a href="#contact">Contact</a></nav>
+    <a class="btn pri" href="#sell">Check your game<svg class="ic" viewBox="0 0 24 24"><path d="M7 17 17 7M8.5 7H17v8.5"/></svg></a>
+  </div>
+  <div id="bar"><i></i></div>
+</header>
+
+<main id="top">
+<div class="hero" id="hero">
+  <div class="wrap hg">
+    <div>
+      <div class="lbl"><i></i><span>We buy Discord link placements on Steam pages</span></div>
+      <h1><span class="ln" style="--i:0"><b>Your game stopped.</b></span><span class="ln dim" style="--i:1"><b>Its page didn't.</b></span></h1>
+      <p class="lead">SideQuest pays developers to place one Discord link on the store page of a game that is no longer active. You set the price. You keep your page. The money goes to your next project, or to your life.</p>
+      <div class="cta"><a class="btn pri lg" href="#sell">Check your game</a><a class="btn ghost lg" href="#how">How it works</a></div>
+    </div>
+    <div class="mock" aria-hidden="true">
+      <div class="mk-top"><i></i><i></i><i></i><span style="margin-left:8px">store.steampowered.com/app/…</span></div>
+      <svg class="mk-art" viewBox="0 0 400 170" aria-hidden="true" preserveAspectRatio="xMidYMid slice"><rect width="400" height="170" fill="#0e0e0e"/><circle cx="296" cy="52" r="20" fill="none" stroke="#5b5b57" stroke-width="1.5"/><circle cx="304" cy="48" r="17" fill="#0e0e0e"/><g fill="#5b5b57"><circle cx="60" cy="30" r="1.3"/><circle cx="130" cy="50" r="1"/><circle cx="210" cy="22" r="1.3"/><circle cx="350" cy="96" r="1"/><circle cx="90" cy="84" r="1"/></g><path d="M0 170V120l52-34 40 26 62-54 58 48 44-30 70 52 74-38v80z" fill="#171716" stroke="#3a3a37" stroke-width="1.2" stroke-linejoin="round"/><path d="M0 170v-22l70-22 60 20 70-26 80 24 120-18v44z" fill="#0b0b0b" stroke="#2a2a28" stroke-width="1.2"/><path d="M200 108v-22m0 0 14 5-14 5" fill="none" stroke="#8b8b86" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <div class="mk-b">
+        <h3>Your game</h3>
+        <div class="mk-s"><span>Players now <b id="mp">38</b></span><span>Last update <b>2022</b></span></div>
+        <div class="sk" style="width:92%"></div><div class="sk" style="width:78%"></div><div class="sk" style="width:55%"></div>
+        <div class="slot"><div><div class="link"><svg class="ic"><use href="#i-link"/></svg>discord.gg/your-server<em>new</em></div></div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section id="how"><div class="wrap">
+  <div class="sh"><h2 class="rv">Three steps. One link.</h2><p class="rv" style="--i:1">No contract maze, no tracking scripts, no changes to your game. We pay for a single line on a page that is not earning attention anymore.</p></div>
+  <div class="steps">
+    <div class="step rv"><svg viewBox="0 0 160 84" class="il"><rect x="6" y="8" width="148" height="68" rx="9"/><path d="M6 26h148"/><circle cx="17" cy="17" r="1.6"/><circle cx="25" cy="17" r="1.6"/><rect x="40" y="12" width="84" height="10" rx="5"/><path d="M26 44h56M26 56h38"/><path d="M104 52l8-8a6 6 0 0 1 8.5 8.5l-3 3m-5-1l-8 8a6 6 0 0 1-8.5-8.5l3-3"/></svg><h3>Paste your Steam link</h3><p>We check that the page is inactive and has no Discord link yet.</p></div>
+    <div class="step rv" style="--i:1"><svg viewBox="0 0 160 84" class="il"><path d="M20 42 52 10h52l24 24-32 32-24 8-40-8z" transform="translate(6 2)"/><circle cx="96" cy="26" r="5"/><path d="M52 44h34M52 54h22"/></svg><h3>Name your price</h3><p>Tell us what the placement is worth to you and how you want to be paid.</p></div>
+    <div class="step rv" style="--i:2"><svg viewBox="0 0 160 84" class="il"><circle cx="46" cy="42" r="30"/><path d="M32 42l10 10 18-20"/><path d="M92 28h44M92 42h44M92 56h28" stroke-dasharray="2 6"/></svg><h3>Agree, add the link, get paid</h3><p>If we accept, we send you the link and settle the payment with you directly.</p></div>
+  </div>
+</div></section>
+
+<section id="sell"><div class="wrap grid2">
+  <div>
+    <h2 class="rv">Is your page available?</h2>
+    <p class="rv" style="--i:1;color:var(--m);font-size:16.5px;margin-top:20px;max-width:440px">Paste the store link of your game. We read the public Steam data, tell you right away if we can place on it, and you send your price from the same screen.</p>
+    <p class="fine rv" style="--i:2">We only look at public Steam data: players now, reviews, release date and whether a Discord link is already there.</p>
+  </div>
+  <div class="card rv" style="--i:1">
+    <form id="fCheck" novalidate>
+      <div class="fld"><label for="url">Steam store link</label>
+        <div class="row"><input class="in" id="url" placeholder="https://store.steampowered.com/app/12345" autocomplete="off" inputmode="url"><button class="btn pri" style="height:44px" id="bCheck" type="submit">Check</button></div></div>
+      <input class="hp" name="site" tabindex="-1" autocomplete="off" aria-hidden="true">
+    </form>
+    <div class="err" id="eCheck" role="status"></div>
+    <div class="res" id="res"><div><div id="resIn"></div></div></div>
+  </div>
+</div></section>
+
+<section id="agencies"><div class="wrap">
+  <div class="sh"><h2 class="rv">For Discord servers and agencies</h2><p class="rv" style="--i:1">A Discord link on an established Steam store page puts your server where players already look. If you run a server or an agency and want that placement, tell us.</p></div>
+  <div class="ag">
+    <div class="rv"><svg viewBox="0 0 40 40" class="il" style="width:40px;margin-bottom:18px"><rect x="4" y="7" width="32" height="26" rx="5"/><path d="M4 15h32M22 25h6"/><path d="M14 25l3-3a3 3 0 0 1 4 4l-1 1"/></svg><h3>A link on a real store page</h3><p>Your invite sits on a public Steam page, not in a feed that disappears in a day.</p></div>
+    <div class="rv" style="--i:1"><svg viewBox="0 0 40 40" class="il" style="width:40px;margin-bottom:18px"><circle cx="20" cy="20" r="14"/><path d="M13 20.5l5 5 9-11"/></svg><h3>Something to show clients</h3><p>Agencies use placements to back up their reach with a link anyone can check.</p></div>
+  </div>
+  <p class="fine rv">SideQuest placements are our own service and are not Discord verification. Discord's official verified badge is granted by Discord only.</p>
+</div></section>
+
+<section id="contact"><div class="wrap grid2">
+  <div><h2 class="rv">Talk to us</h2><p class="rv" style="--i:1;color:var(--m);font-size:16.5px;margin-top:20px;max-width:440px">Questions, a bulk offer, or a server that wants a placement. Leave the best way to reach you and we will reply there.</p></div>
+  <div class="card rv" style="--i:1">
+    <form id="fContact" novalidate>
+      <div class="fld"><label>Reach me on</label>
+        <div class="seg" id="seg"><i class="thumb"></i><button type="button" class="on">Email</button><button type="button">Twitter / X</button><button type="button">Discord</button><button type="button">Telegram</button></div></div>
+      <div class="fld"><label for="cc" id="cl">Email address</label><input class="in" id="cc" placeholder="you@studio.com" autocomplete="off"></div>
+      <div class="fld"><label for="cm">Message</label><textarea class="in" id="cm" placeholder="Tell us what you need"></textarea></div>
+      <input class="hp" name="site" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <button class="btn pri lg" style="width:100%" type="submit" id="bContact">Send message</button>
+      <div class="err" id="eContact" role="status"></div>
+    </form>
+  </div>
+</div></section>
+</main>
+
+<footer><div class="wrap">
+  <div class="fl"><span>SideQuest · side-quest.pro</span><span>Not affiliated with Valve, Steam or Discord.</span></div>
+</div></footer>
+<div id="toasts"></div>
+
+<script>
+const $=(s,r=document)=>r.querySelector(s),$$=(s,r=document)=>[...r.querySelectorAll(s)];
+const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const nf=n=>Number(n).toLocaleString('en');
+function toast(t){const e=document.createElement('div');e.className='toast';e.innerHTML='<svg class="ic"><use href="#i-ok"/></svg>'+esc(t);$('#toasts').append(e);setTimeout(()=>{e.classList.add('out');setTimeout(()=>e.remove(),300)},3800)}
+const api=async(a,b)=>{try{const r=await fetch('/api/sq?a='+a,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(b)});const d=await r.json().catch(()=>({}));if(!r.ok)throw new Error(d.error||'Request failed');return d}catch(e){throw new Error(e.message==='Failed to fetch'?'No connection. Try again.':e.message)}};
+const bar=on=>$('#bar').classList.toggle('run',on);
+// hero glow + player count tick
+$('#hero').addEventListener('mousemove',e=>{const r=e.currentTarget.getBoundingClientRect();e.currentTarget.style.setProperty('--mx',(e.clientX-r.left)+'px');e.currentTarget.style.setProperty('--my',(e.clientY-r.top)+'px')});
+(()=>{let n=38;const el=$('#mp');if(matchMedia('(prefers-reduced-motion:reduce)').matches)return;setTimeout(()=>{const t=setInterval(()=>{el.textContent=--n;if(n<=0)clearInterval(t)},45)},1000)})();
+// scroll reveal
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("show");io.unobserve(e.target)}}),{threshold:.15});$$('.rv').forEach(e=>io.observe(e));
+// segmented control
+const seg=$('#seg'),PH={Email:['Email address','you@studio.com'],'Twitter / X':['Twitter / X handle','@yourhandle'],Discord:['Discord username','username'],Telegram:['Telegram username','@username']};
+function thumb(){const b=$('button.on',seg);if(!b)return;const t=$('.thumb',seg);t.style.width=b.offsetWidth+'px';t.style.transform=`translateX(${b.offsetLeft}px)`}
+seg.onclick=e=>{const b=e.target.closest('button');if(!b)return;$$('button',seg).forEach(x=>x.classList.toggle('on',x===b));thumb();const p=PH[b.textContent];$('#cl').textContent=p[0];$('#cc').placeholder=p[1]};
+addEventListener('load',thumb);addEventListener('resize',thumb);document.fonts&&document.fonts.ready.then(thumb);
+// check game
+let cur=null;
+$('#fCheck').addEventListener('submit',async e=>{e.preventDefault();const url=$('#url').value.trim(),er=$('#eCheck'),res=$('#res');er.textContent='';res.classList.remove('on');
+  if(!url){er.textContent='Paste a Steam store link first.';return}
+  const b=$('#bCheck');b.disabled=true;b.textContent='Checking…';bar(true);
+  try{const d=await api('check',{url,site:$('#fCheck [name=site]').value});cur=url;
+    if(!d.ok){er.textContent=d.reason;return}
+    const g=d.game;
+    $('#resIn').innerHTML=`<div class="gm"><img src="${esc(g.img)}" alt=""><div><h3>${esc(g.name)}</h3><p>${esc(g.dev||'Unknown developer')}</p></div></div>
+    <div class="kv2"><div><small>Players now</small><span>${nf(g.players)}</span></div><div><small>Reviews</small><span>${nf(g.reviews)}</span></div><div><small>Released</small><span>${esc(g.date)}</span></div></div>
+    ${d.eligible?`<span class="st ok">Available for placement</span>
+    <form id="fOffer" novalidate>
+      <div class="fld"><label for="oa">Your price</label><div class="row"><input class="in" id="oa" type="number" min="1" step="any" placeholder="150" inputmode="decimal"><select class="in" id="ocu" style="max-width:96px"><option>EUR</option><option>USD</option><option>GBP</option></select></div></div>
+      <div class="fld"><label for="op">How do you want to be paid?</label><select class="in" id="op"><option>PayPal</option><option>Bank transfer</option><option>Crypto</option><option>Wise</option><option>Other</option></select></div>
+      <div class="fld"><label for="oc">Your contact (email, Discord, Telegram or X)</label><input class="in" id="oc" placeholder="you@studio.com" autocomplete="off"></div>
+      <input class="hp" name="site" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <button class="btn pri lg" style="width:100%" type="submit" id="bOffer">Send my offer</button><div class="err" id="eOffer" role="status"></div></form>`
+    :`<span class="st no">Not available</span><p style="color:var(--m)">${esc(d.reason)} You can still <a href="#contact" style="text-decoration:underline;text-underline-offset:3px">talk to us</a>.</p>`}`;
+    res.classList.add('on');
+  }catch(x){er.textContent=x.message}finally{b.disabled=false;b.textContent='Check';bar(false)}});
+$('#resIn').addEventListener('submit',async e=>{if(e.target.id!=='fOffer')return;e.preventDefault();const er=$('#eOffer'),b=$('#bOffer');er.textContent='';
+  const amount=$('#oa').value,contact=$('#oc').value.trim();if(!(+amount>0)||!contact){er.textContent='Add your price and a way to reach you.';return}
+  b.disabled=true;b.textContent='Sending…';bar(true);
+  try{await api('offer',{url:cur,amount,currency:$('#ocu').value,payment:$('#op').value,contact,site:$('#fOffer [name=site]').value});
+    $('#resIn').innerHTML='<div style="padding:26px 0 6px"><span class="st ok">Offer sent</span><p style="color:var(--m)">We received your price and will reply on the contact you gave us.</p></div>';toast('Offer sent')}
+  catch(x){er.textContent=x.message;b.disabled=false;b.textContent='Send my offer'}finally{bar(false)}});
+// contact
+$('#fContact').addEventListener('submit',async e=>{e.preventDefault();const er=$('#eContact'),b=$('#bContact');er.textContent='';
+  const contact=$('#cc').value.trim(),message=$('#cm').value.trim();if(!contact||!message){er.textContent='Add your contact and a message.';return}
+  b.disabled=true;b.textContent='Sending…';bar(true);
+  try{await api('contact',{channel:$('button.on',seg).textContent,contact,message,site:$('#fContact [name=site]').value});toast('Message sent');$('#cm').value='';$('#cc').value=''}
+  catch(x){er.textContent=x.message}finally{b.disabled=false;b.textContent='Send message';bar(false)}});
+</script>
+</body>
+</html>
