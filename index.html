@@ -105,6 +105,18 @@ footer .wrap{max-width:760px}.mail{display:inline-block;font-weight:500;font-siz
 footer{padding:20px 20px calc(20px + env(safe-area-inset-bottom));text-align:center}footer .legal{margin:0;padding:0;border:0}#contact{padding-bottom:64px}
 #gl{transform:translateZ(0)}
 @media(hover:none),(pointer:coarse),(max-width:900px){*{-webkit-backdrop-filter:none!important;backdrop-filter:none!important}body::after{display:none}nav{background:rgba(10,10,10,.94)}.pill,.pays span,.btn.gh{background:rgba(10,10,10,.85)}.card{background:rgba(12,12,12,.96)}.mq{background:rgba(5,5,5,.94)}footer{background:rgba(5,5,5,.96)}}
+
+/* tutorial */
+.tut{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,760px) minmax(0,1fr);gap:16px;align-items:center;max-width:1280px;margin:44px auto 0;padding:0 24px}
+.tut .stage{height:clamp(200px,24vw,340px);margin:0}
+.vid{padding:10px}.vf{position:relative;aspect-ratio:16/9;border-radius:12px;overflow:hidden;background:#000}.vf video{display:block;width:100%;height:100%;object-fit:cover}
+.vp{position:absolute;inset:0;margin:auto;width:88px;height:88px;border-radius:50%;background:#fff;color:#000;display:grid;place-items:center;transition:transform .5s var(--e),opacity .4s,box-shadow .3s}
+.vp svg{width:30px;height:30px;fill:#000;margin-left:4px}.vp:hover{transform:scale(1.06);box-shadow:0 0 0 8px rgba(255,255,255,.14),0 20px 60px rgba(255,255,255,.2)}
+.vid.on .vp{opacity:0;transform:scale(.7);pointer-events:none}
+.vc{position:absolute;left:14px;right:14px;bottom:20px;display:flex;align-items:center;gap:8px}.vc .fl{flex:1}
+.vc .pill{background:rgba(10,10,10,.85)}.vc button{width:34px;height:34px;border-radius:10px;display:grid;place-items:center;background:rgba(10,10,10,.85);box-shadow:inset 0 0 0 1px var(--line);transition:background .25s,color .25s}.vc button:hover{background:#fff;color:#000}#vm.off .w{opacity:.2}
+.vs{position:absolute;left:0;right:0;bottom:0;height:16px}.vs::before{content:"";position:absolute;left:0;right:0;bottom:0;height:2px;background:rgba(255,255,255,.14)}.vs i{position:absolute;left:0;bottom:0;width:100%;height:2px;background:#fff;transform-origin:0 50%;transform:scaleX(0)}
+@media(max-width:900px){.tut{grid-template-columns:1fr 1fr;padding:0 20px}.tut .vid{grid-column:1/-1;grid-row:2}.tut .stage{height:130px}.vp{width:68px;height:68px}}
 </style>
 </head>
 <body class="lock">
@@ -115,7 +127,7 @@ footer{padding:20px 20px calc(20px + env(safe-area-inset-bottom));text-align:cen
 
 <nav>
 <svg class="lg" viewBox="0 0 32 32"><rect width="32" height="32" rx="9" fill="#fff"/><path d="M22 10.5c-1.2-2-3.4-3-6-3-3.4 0-5.8 1.8-5.8 4.4 0 6.4 11.6 3.2 11.6 9.4 0 2.8-2.6 4.7-6 4.7-2.9 0-5.3-1.2-6.6-3.4" fill="none" stroke="#000" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
-<a href="#money">Payout</a><a href="#why">Why</a><a href="#contact">Contact</a><a class="pri" href="#submit">Submit</a>
+<a href="#tutorial">Tutorial</a><a href="#money">Payout</a><a href="#why">Why</a><a href="#contact">Contact</a><a class="pri" href="#submit">Submit</a>
 <button id="snd" aria-label="Toggle sound"><svg class="ic" viewBox="0 0 24 24"><path d="M4 9.5v5h3.5L12 18.5v-13L7.5 9.5z"/><g class="w"><path d="M15.5 9a4 4 0 0 1 0 6M18 6.5a7.5 7.5 0 0 1 0 11"/></g></svg></button>
 </nav>
 
@@ -130,8 +142,24 @@ footer{padding:20px 20px calc(20px + env(safe-area-inset-bottom));text-align:cen
 
 <div class="mq" aria-hidden="true"><div><span>Steam</span><span>Discord</span><span>Placement</span><span>Payout</span><span>Your game</span><span>Your price</span><span>Steam</span><span>Discord</span><span>Placement</span><span>Payout</span><span>Your game</span><span>Your price</span></div></div>
 
+<section id="tutorial"><div class="wrap">
+  <div class="eb rv">01 · Tutorial</div>
+  <h2 class="sp" data-s>Tutorial. <span class="dim">30 seconds.</span></h2>
+  <p class="lead rv">From Steam link to payout, shown step by step. Press play.</p>
+</div>
+<div class="tut">
+  <div class="stage" id="s4"></div>
+  <div class="vid card tilt rv" id="vid"><div class="vf"><video src="assets/tutorial.mp4" poster="assets/tutorial-poster.jpg" preload="none" playsinline></video>
+    <button class="vp" id="vp" aria-label="Play the tutorial"><svg viewBox="0 0 24 24"><path d="M8 5.5v13l11-6.5z"/></svg></button>
+    <div class="vc"><span class="pill"><i></i><span id="vt">0:29</span></span><span class="fl"></span>
+      <button id="vm" aria-label="Toggle sound"><svg class="ic" viewBox="0 0 24 24"><path d="M4 9.5v5h3.5L12 18.5v-13L7.5 9.5z"/><g class="w"><path d="M15.5 9a4 4 0 0 1 0 6M18 6.5a7.5 7.5 0 0 1 0 11"/></g></svg></button>
+      <button id="vfs" aria-label="Fullscreen"><svg class="ic" viewBox="0 0 24 24"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/></svg></button></div>
+    <div class="vs" id="vs"><i id="vb"></i></div></div></div>
+  <div class="stage" id="s5"></div>
+</div></section>
+
 <section id="money"><div class="wrap">
-  <div class="eb rv">01 · Payout</div>
+  <div class="eb rv">02 · Payout</div>
   <h2 class="sp" data-s>How much can you get?</h2>
   <div class="num rv" style="--d:3">$<span id="n1" data-to="100">100</span>–<span id="n2" data-to="1000">1,000</span><small>for each game · 3 to 4 figures</small></div>
   <div class="stage" id="s2"></div>
@@ -140,7 +168,7 @@ footer{padding:20px 20px calc(20px + env(safe-area-inset-bottom));text-align:cen
 </div></section>
 
 <section id="why"><div class="wrap">
-  <div class="eb rv">02 · Why</div>
+  <div class="eb rv">03 · Why</div>
   <h2 class="sp" data-s>Why? Discord server verification.</h2>
   <div class="stage" id="s3"></div>
   <p class="lead rv">A server linked from a real Steam page has public proof behind it. That is what servers and agencies pay for.</p>
@@ -153,7 +181,7 @@ footer{padding:20px 20px calc(20px + env(safe-area-inset-bottom));text-align:cen
 </div></section>
 
 <section id="how"><div class="wrap">
-  <div class="eb rv">03 · Process</div>
+  <div class="eb rv">04 · Process</div>
   <h2 class="sp" data-s>Three steps. Done.</h2>
   <div class="steps">
     <div class="card tilt rv"><span class="sn">Step 1</span><h3>Paste your Steam link</h3><p>We check in seconds if your page is available.</p></div>
@@ -163,7 +191,7 @@ footer{padding:20px 20px calc(20px + env(safe-area-inset-bottom));text-align:cen
 </div></section>
 
 <section id="submit"><div class="wrap">
-  <div class="eb rv">04 · Submit</div>
+  <div class="eb rv">05 · Submit</div>
   <h2 class="sp" data-s>Submit your game.</h2>
   <p class="lead rv">Paste your Steam link. We tell you instantly if your page is available, then you name your price.</p>
   <div class="form card tilt rv">
@@ -177,7 +205,7 @@ footer{padding:20px 20px calc(20px + env(safe-area-inset-bottom));text-align:cen
 </div></section>
 
 <section id="contact"><div class="wrap">
-  <div class="eb rv">05 · Contact</div>
+  <div class="eb rv">06 · Contact</div>
   <h2 class="sp" data-s>Contact us.</h2>
   <p class="lead rv">Questions, a bulk offer, or a server that wants a placement. Leave the best way to reach you.</p>
   <div class="form card tilt rv">
@@ -256,7 +284,12 @@ L1.position.set(Math.sin(t*.6)*6,3+Math.cos(t*.5)*2,5)}
 const coins=new THREE.Group(),cl=[];for(let i=0;i<8;i++){const c=new THREE.Group();c.add(mesh(new THREE.CylinderGeometry(1,1,.17,MOB?32:56),wh));const r=mesh(new THREE.TorusGeometry(.72,.025,10,56),dk);r.rotation.x=Math.PI/2;r.position.y=.09;c.add(r);c.userData.y=i*.21-.7;coins.add(c);cl.push(c)}
 const badge=new THREE.Group(),bd=mesh(new THREE.CylinderGeometry(1.3,1.3,.34,8),wh),bi=mesh(new THREE.CylinderGeometry(1,1,.4,8),dk);bd.rotation.x=bi.rotation.x=Math.PI/2;
 const ck=mesh(new THREE.TubeGeometry(new THREE.CatmullRomCurve3([new THREE.Vector3(-.5,0,.25),new THREE.Vector3(-.15,-.4,.25),new THREE.Vector3(.55,.42,.25)]),24,.1,10),wh);badge.add(bd,bi,ck);
-const st=[['#s1',link],['#s2',coins],['#s3',badge]];st.forEach(([,g])=>{g.userData.t=0;g.visible=false;S.add(g)});
+const [Xp,Xc]=(()=>{const q=MOB?32:56,pl=new THREE.Group(),pb=mesh(new THREE.CylinderGeometry(1.3,1.3,.34,q),wh),pi=mesh(new THREE.CylinderGeometry(1,1,.4,q),dk),ts=new THREE.Shape();pb.rotation.x=pi.rotation.x=Math.PI/2;
+ts.moveTo(-.3,.52);ts.lineTo(.6,0);ts.lineTo(-.3,-.52);ts.closePath();const tg=new THREE.ExtrudeGeometry(ts,{depth:.5,bevelEnabled:true,bevelThickness:.04,bevelSize:.04,bevelSegments:2});tg.translate(0,0,-.25);pl.add(pb,pi,mesh(tg,wh));pl.userData.sw=1;
+const ash=new THREE.Shape();[[-.7,1.3],[-.7,-1.1],[-.1,-.55],[.2,-1.35],[.62,-1.17],[.33,-.42],[1,-.42]].forEach(([x,y],i)=>i?ash.lineTo(x,y):ash.moveTo(x,y));ash.closePath();
+const ag=new THREE.ExtrudeGeometry(ash,{depth:.36,bevelEnabled:true,bevelThickness:.07,bevelSize:.07,bevelSegments:3});ag.translate(-.15,.03,-.18);
+const rg=mesh(new THREE.TorusGeometry(.5,.025,8,48),new THREE.MeshBasicMaterial({color:0xffffff,transparent:true,opacity:.5})),cu=new THREE.Group();rg.position.set(-.85,1.33,.1);cu.add(mesh(ag,wh),rg);cu.userData={sw:2.5,rg};return[pl,cu]})();
+const st=[['#s1',link],['#s2',coins],['#s3',badge],['#s4',Xp],['#s5',Xc]];st.forEach(([,g])=>{g.userData.t=0;g.visible=false;S.add(g)});
 const N=MOB?150:700,pp=new Float32Array(N*3);for(let i=0;i<N*3;i++)pp[i]=(Math.random()-.5)*(i%3==2?10:26);const pg=new THREE.BufferGeometry();pg.setAttribute('position',new THREE.BufferAttribute(pp,3));
 const pts=new THREE.Points(pg,new THREE.PointsMaterial({color:0xffffff,size:.03,transparent:true,opacity:.5}));S.add(pts);
 let lw=0,rt;function size(){lw=innerWidth;R.setSize(innerWidth,innerHeight,false);C.aspect=innerWidth/innerHeight;C.updateProjectionMatrix()}size();addEventListener('resize',()=>{if(innerWidth!==lw)size();else{clearTimeout(rt);rt=setTimeout(size,300)}});
@@ -264,7 +297,7 @@ const hh=2*10*Math.tan(THREE.MathUtils.degToRad(20));let t=0,lastR=0,RC=[];const
 (function loop(){requestAnimationFrame(loop);const nowms=performance.now();if(MOB&&nowms-lastR<20)return;lastR=nowms;t=nowms/1000;const k=hh/innerHeight,nx=mx/innerWidth-.5,ny=my/innerHeight-.5;
 st.forEach(([sel,g],ix)=>{const c=RC[ix]||{t:0,l:0,w:0,h:0},r={top:c.t-scrollY,left:c.l,width:c.w,height:c.h};r.bottom=r.top+r.height;const vis=r.bottom>-120&&r.top<innerHeight+120;g.visible=vis;if(!vis){g.userData.t=0;return}
 g.userData.t+=(1-g.userData.t)*.06;const e=g.userData.t;g.position.set((r.left+r.width/2-innerWidth/2)*k,-(r.top+r.height/2-innerHeight/2)*k+(1-e)*-1.2,0);g.scale.setScalar(Math.max(Math.min(r.height,r.width*.75)*k/(g===link?3.8:3.3)*e,.001));
-if(g===link){g.rotation.set(0,nx*.3,0);heroAnim(t,nx,ny)}else{g.rotation.y=t*.5+nx*1.2;g.rotation.x=.35+ny*.6;g.rotation.z=Math.sin(t*.7)*.08}});
+if(g===link){g.rotation.set(0,nx*.3,0);heroAnim(t,nx,ny)}else if(g.userData.sw){const ph=g.userData.sw;g.rotation.set(.12+ny*.5,Math.sin(t*.8+ph)*.55+nx*1.1,Math.sin(t*.6+ph)*.07);g.position.y+=Math.sin(t*1.3+ph)*.16;const rg=g.userData.rg;if(rg){const p=(t*.8)%1;rg.scale.setScalar(.6+p*1.5);rg.material.opacity=.6*(1-p)}}else{g.rotation.y=t*.5+nx*1.2;g.rotation.x=.35+ny*.6;g.rotation.z=Math.sin(t*.7)*.08}});
 const pr=Math.min(Math.max((innerHeight-(RC[1]?RC[1].t-scrollY:0))/(innerHeight*.9),0),1);cl.forEach((c,i)=>{const on=i<=pr*7.5,ty=on?c.userData.y:5;c.position.y+=(ty-c.position.y)*.12;c.visible=c.position.y<4.5});
 pts.rotation.y=t*.02+nx*.1;pts.position.y=scrollY*.0016;R.render(S,C)})()})();
 /* cursor ring lerp + progress */
@@ -303,6 +336,16 @@ const contact=$('#cc').value.trim(),message=$('#cm').value.trim();if(!contact||!
 b.disabled=true;b.textContent='Sending…';
 try{await api('contact',{channel:$('button.on',seg).textContent,contact,message,site:$('#fContact [name=site]').value});toast('Message sent');snd.ok();$('#cm').value='';$('#cc').value=''}
 catch(x){er.textContent=x.message}finally{b.disabled=false;b.textContent='Send message'}});
+
+/* ---- tutorial video ---- */
+(function(){const f=$('#vid'),v=$('video',f),vt=$('#vt'),vb=$('#vb'),vm=$('#vm'),fm=n=>'0:'+String(Math.max(0,Math.ceil(n))).padStart(2,'0'),sy=()=>f.classList.toggle('on',!v.paused);
+const tg=()=>{if(v.paused){const r=v.play();r&&r.catch&&r.catch(()=>{})}else v.pause()};
+$('#vp').onclick=v.onclick=tg;v.onplay=v.onpause=sy;v.onended=()=>{v.currentTime=0;sy()};
+v.ontimeupdate=()=>{vb.style.transform=`scaleX(${v.currentTime/(v.duration||1)})`;vt.textContent=fm((v.duration||29)-v.currentTime)};
+vm.onclick=()=>{v.muted=!v.muted;vm.classList.toggle('off',v.muted)};
+$('#vfs').onclick=()=>{const r=v.requestFullscreen||v.webkitRequestFullscreen||v.webkitEnterFullscreen;r&&r.call(v)};
+$('#vs').onclick=e=>{const r=e.currentTarget.getBoundingClientRect();if(v.duration)v.currentTime=(e.clientX-r.left)/r.width*v.duration};
+new IntersectionObserver(es=>es.forEach(e=>{if(!e.isIntersecting&&!v.paused)v.pause()}),{threshold:.15}).observe(f)})();
 </script>
 </body>
 </html>
